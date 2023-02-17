@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mahong.me\/hrtf\/"
-        },"image": ["https:\/\/mahong.me\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "3D音频, BRIR, HRIR, HRTF, 空间音频","wordcount":  3111 ,
+        },"image": ["https:\/\/mahong.me\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "3D音频, BRIR, HRIR, HRTF, 空间音频","wordcount":  3113 ,
         "url": "https:\/\/mahong.me\/hrtf\/","datePublished": "2015-12-28T15:50:18+00:00","dateModified": "2015-12-28T15:50:18+00:00","license": "2023Ⓒ版权所有，未经过作者许可，不得转载。","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/mahong.me\/images\/avatar.jpg"},"author": {
@@ -105,7 +105,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HRTF 3D 音效简明算法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mahong.me" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>图林根の烤肠</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mt/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>mt</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2015-12-28">2015-12-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3111 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2015-12-28">2015-12-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3113 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -259,7 +259,7 @@
 </span></span><span class="line"><span class="cl">优化后的片段<span class="mi">6</span>’ <span class="p">=</span> 片段<span class="mi">6</span>开头窗数据剔除掉的部分（空值） <span class="o">+</span> 片段<span class="mi">6</span>剩余部分
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这里抛开片段1，剩余的片段2到片段6长度均减少了窗函数长度的一半。少去的部分即为淡入（淡出）的长度。再举个实际的例子：</p>
+</div><p>这里抛开片段1，剩余的片段2到片段6长度均减少了窗函数长度的一半，少去的部分即为淡入（淡出）的长度，这里再举个实际的例子：</p>
 <p>片段2原来长度 : 44100， 淡入淡出长度各为：256， 则可以推出：优化后的片段2’长度为：<code>44100 - 256 = 43844</code>，中间的部分长度为 <code>44100 - 256 - 256 = 43588</code>。还有一点需要注意的是，<code>优化后的片段2’ = 片段2 [256+1: 43588]</code> 即从原始片段2的第256个值开始到43588的值。</p>
 <h4 id="44-片段合并">4.4 片段合并</h4>
 <p>再优化完每一片段后，最后一步就是把所有的片段合并即可，合并后的结果如图所示：
