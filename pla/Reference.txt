@@ -1,0 +1,18 @@
+Hong Ma
+
+Source link:
+piano:
+https://www.sketchappsources.com/free-source/1694-synthesizer-piano-icon-sketch-freebie-resource.html
+
+button:
+https://www.sketchappsources.com/free-source/4583-skeuomorphic-button-styles-sketch-freebie-resource.html
+
+Power on button:
+https://www.sketchappsources.com/free-source/1023-modern-power-button-sketch-freebie-resource.html
+
+font:
+Dancing_Script: https://fonts.google.com/specimen/Dancing+Script?query=Dancing
+Radion font: https://www.fonts.com/font/typodermic/radio-stars?QueryFontType=Web&src=GoogleWebFonts
+
+LED Arduino:
+https://www.sketchappsources.com/resource/download-2077.html

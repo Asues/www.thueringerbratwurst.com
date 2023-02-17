@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>简述虚拟演播室中的 free-d 摄像机同步协议 - 图林根の烤肠</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="简述虚拟演播室中的 free-d 摄像机同步协议" />
+<meta property="og:description" content="尊重原创，请勿转载! 作者：图林根の烤肠 前言 虚拟演播室（Virtual Studio，或者 Virtual Set）技术在上个世纪 80 年代就已经出现，它主要使用了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mahong.me/freed/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-03T00:16:52+00:00" />
+<meta property="article:modified_time" content="2021-04-03T00:16:52+00:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="简述虚拟演播室中的 free-d 摄像机同步协议"/>
+<meta name="twitter:description" content="尊重原创，请勿转载! 作者：图林根の烤肠 前言 虚拟演播室（Virtual Studio，或者 Virtual Set）技术在上个世纪 80 年代就已经出现，它主要使用了"/>
+<meta name="application-name" content="图林根の烤肠">
+<meta name="apple-mobile-web-app-title" content="图林根の烤肠"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://mahong.me/freed/" /><link rel="prev" href="https://mahong.me/secret_hider/" /><link rel="next" href="https://mahong.me/pla/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "简述虚拟演播室中的 free-d 摄像机同步协议",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mahong.me\/freed\/"
+        },"image": ["https:\/\/mahong.me\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Camera-Tracking, Free-D, FreeD, Media Technology, Virtual Set, Virtual Studio, 同步协议, 媒体技术, 摄像机, 摄像机同步, 摄像机追踪, 虚拟演播室, 虚拟演播室技术","wordcount":  4000 ,
+        "url": "https:\/\/mahong.me\/freed\/","datePublished": "2021-04-03T00:16:52+00:00","dateModified": "2021-04-03T00:16:52+00:00","license": "2023Ⓒ版权所有，未经过作者许可，不得转载。","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/mahong.me\/images\/avatar.jpg"},"author": {
+                "@type": "Person",
+                "name": "图林根の烤肠"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="图林根の烤肠"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>图林根の烤肠</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/app/" title="app"> App </a><a class="menu-item" href="/categories/mt/"> 媒体技术 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/asues" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/freed/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="图林根の烤肠"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>图林根の烤肠</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/app/" title="app">App</a><a class="menu-item" href="/categories/mt/" title="">媒体技术</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/asues" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/freed/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">简述虚拟演播室中的 free-d 摄像机同步协议</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mahong.me" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>图林根の烤肠</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mt/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>mt</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-04-03">2021-04-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4000 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#free-d-协议的介绍">Free-d 协议的介绍</a></li>
+    <li><a href="#消息类型-message-type">消息类型 Message Type</a></li>
+    <li><a href="#type-d1---camera-positionorientation-data">Type D1 - Camera position/orientation data</a></li>
+    <li><a href="#坐标轴的定义">坐标轴的定义</a>
+      <ul>
+        <li><a href="#摄像机水平平移pan角度的定义">摄像机水平平移（pan）角度的定义</a></li>
+        <li><a href="#摄像机垂直倾斜-tilt角度的定义">摄像机垂直倾斜 （tilt）角度的定义</a></li>
+        <li><a href="#摄像机滚动旋转-roll角度的定义">摄像机滚动旋转 （roll）角度的定义</a></li>
+        <li><a href="#摄像机空间数值的定义">摄像机空间数值的定义</a></li>
+        <li><a href="#摄像机缩放zoom和焦点focus数值的定义">摄像机缩放（zoom）和焦点（focus）数值的定义</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="尊重原创请勿转载">尊重原创，请勿转载!</h1>
+<p>作者：<a href="https://mahong.me" target="_blank" rel="noopener noreffer ">图林根の烤肠</a></p>
+<h2 id="前言">前言</h2>
+<p>虚拟演播室（Virtual Studio，或者 Virtual Set）技术在上个世纪 80 年代就已经出现，它主要使用了色键（Keying）技术，摄像机追踪技术（Camera-Tracking），Mixed Reality（MR, 混合现实）等技术来将现实世界中拍摄的物体合成到虚拟场景中，从而实现一些现实环境中难以实现的效果。受限于当时的硬件环境，该技术实现的效果并不理想，并不能使观众带入到虚拟场景中。近些年来，随着计算机图形技术和硬件的不断发展（对的没错，跟5G，大数据，人工智能没关，这几项国内新闻动不动就要提几句，生怕不沾边不算新科技似的😂），通过虚拟演播室已经可以在演出直播中制作出非常惊艳的效果。从 <a href="https://www.vizrt.com/en/products/viz-virtual-studio" target="_blank" rel="noopener noreffer ">Vizrt 官网</a> 就可以看到目前的几个实例项目。由于毕设的虚拟演播室项目需要使用 Unity 引擎而不是 Unreal 来实现摄像机的同步功能，亦或许也许是年代久远的原因，并没有发现其它关于这方面的知识介绍，随即决定简要介绍下这个通讯协议。鉴于这篇文章主要是介绍<code>free-d</code>协议，相关虚拟演播室的基础知识内容就不展开叙述了（当然，如果你或多或少听说过 free-d，也能直接说明你已经不需要了解相关知识了）。
+<figure><img src="VT_Unreal.png"/><figcaption>
+            <h4>使用 Unreal 来制作的气象广播</h4>
+        </figcaption>
+</figure>
+</p>
+<h2 id="free-d-协议的介绍">Free-d 协议的介绍</h2>
+<p>Free-d 摄像机追踪系统于上个世纪90年代由 BBC（就是那个擅长使用滤镜的公司🤣）开发<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，其使用的通讯协议被称作 free-d协议。由于该协议数据结构简单且十分高效，一些 PTZ 云台摄像机，例如松下的大部分 PTZ 摄像机，都遵了该标准。 Free-d 协议的内容既可以通过 RS422/RS485 串口，也可以使用 IP 网络，通过 UDP 端口进行数据发送。通过串口发送数据的规格如下 <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>,<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>| Baud rate | 38.4 kbaud |
+| Data bits | 8 (LSB first) |
+| Parity | Odd |
+| Stop bits | 1 |
+| Total bits | 11 |</p>
+<p>该协议的数据内容为主要由四部分组成：<code>消息类型（Message type）、摄像机 ID 、具体数据（该数据的组成依据消息类型而不同）、校验位（Checksum）</code>。该协议的字节消息发送方式为 <code>大端序（Big-Endian）</code>，校验方式是通过 <code>0x40</code> 减去消息的前面28字节（包括头部的消息类型），然后取最后两位得到。该协议的消息发送机制分为两种，一种是每秒钟 30 次的 <code>Stream 模式</code>（默认为该模式），另一种是按需发送的 <code>Polled mode</code>，该模式仅仅在请求信息的时候发送消息，但是请求的频率不能超过每秒100次，及消息请求之间需要 0.1ms 间隔。</p>
+<blockquote>
+<p>这个校验方法我并没有去实际验证，因为我项目中使用的摄像机我是通过 UDP/IP 方式接收数据，对传输要求不高，并不需要数据验证，如有朋友验证过，欢迎留言。</p>
+</blockquote>
+<blockquote>
+<p>英文原文： The checksum is calculated by subtracting (modulo 256) each byte of the message, including the message type, from 40 (hex)</p>
+</blockquote>
+<h2 id="消息类型-message-type">消息类型 Message Type</h2>
+<p>Free-d 协议的消息内容不单单发送摄像机的空间信息，它可以包含不同的数据内容。可以简单理解为不同的消息类型决定了 free-d 协议传输的数据格式有所不同，不同的消息类型分别对应了不同的使用目的。主要的消息类型可以分为：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type D0 -poll/command</td>
+<td>用于从free-d™单元获取或者发送数据</td>
+</tr>
+<tr>
+<td>Type D1 – camera position/orientation data</td>
+<td>用于从free-d™单元传输摄像机位置和方向数据（摄像机同步的关键类型）</td>
+</tr>
+<tr>
+<td>Type D2 – system status</td>
+<td>用于从free-d™单元传输系统状态。</td>
+</tr>
+<tr>
+<td>Type D3 – control parameters</td>
+<td>用于从free-d™单元传输或者请求控制参数</td>
+</tr>
+<tr>
+<td>Type D4 &amp; D5 – target data</td>
+<td>用于从free-d™单元传输目标数据</td>
+</tr>
+<tr>
+<td>Type D6 &amp; D7 – image data</td>
+<td>用于从free-d™单元传输图像数据</td>
+</tr>
+<tr>
+<td>Type D8 – EEPROM data</td>
+<td>用于从free-d™单元将EEPROM数据传输</td>
+</tr>
+<tr>
+<td>Type D9 – request EEPROM data</td>
+<td>用于请求从free-d™单元传输EEPROM数据</td>
+</tr>
+<tr>
+<td>Type DA – camera calibration data</td>
+<td>用于从free-d™单元传输相机校准数据</td>
+</tr>
+<tr>
+<td>Type DB – diagnostic mode</td>
+<td>用于将free-d™单元切换诊断模式</td>
+</tr>
+</tbody>
+</table>
+<p>由于每一种消息类型所定义了不同的数据格式，这里碍于篇幅，只会介绍下最重要的 <code>Type D1 - camera position/orientation</code>， 该类型是我们实现摄像机同步的关键所在。其余消息类型还请读者自行查阅详细内容，具体参考链接和下载地址<sup id="fnref1:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> 都可以在文章末尾找到。</p>
+<h2 id="type-d1---camera-positionorientation-data">Type D1 - Camera position/orientation data</h2>
+<p>Type D1 的数据包一共有 <code>29字节</code> (尖括号的内容为一字节)， 包括了摄像机的八个参数数据，这八个参数主要包括摄像机的六个外部参数和两个内部参数。外部的六个参数为：摄像机的空间位置（x，y，z），摄像机自身水平（pan）、垂直（tilt）和自身旋转（roll）的数值。内部两个参数包括摄像机镜头的缩放（zoom）和对焦（focus）数值。具体结构内容如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字节</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;D1&gt;</td>
+<td style="text-align:center">消息类型</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;CA&gt;</td>
+<td style="text-align:center">摄像机 ID</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;PH&gt;&lt;PM&gt;&lt;PL&gt;</td>
+<td style="text-align:center">水平 Pan 角度</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;TH&gt;&lt;TM&gt;&lt;TL&gt;</td>
+<td style="text-align:center">垂直 Tilt 角度</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;RH&gt;&lt;RM&gt;&lt;RL&gt;</td>
+<td style="text-align:center">旋转 Roll 角度</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;XH&gt;&lt;XM&gt;&lt;XL&gt;</td>
+<td style="text-align:center">摄像机的 X 坐标</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;YH&gt;&lt;YM&gt;&lt;YL&gt;</td>
+<td style="text-align:center">摄像机的 Y 坐标</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;HH&gt;&lt;HM&gt;&lt;HL&gt;</td>
+<td style="text-align:center">摄像机的 H 坐标 (Z 坐标)</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;ZH&gt;&lt;ZM&gt;&lt;ZL&gt;</td>
+<td style="text-align:center">缩放（zoom）数值</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;FH&gt;&lt;FM&gt;&lt;FL&gt;</td>
+<td style="text-align:center">对焦时的焦点（focus）数值</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;SH&gt;&lt;SL&gt;</td>
+<td style="text-align:center">由用户保留，以做它用</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;CK&gt;</td>
+<td style="text-align:center">校验位</td>
+</tr>
+</tbody>
+</table>
+<h2 id="坐标轴的定义">坐标轴的定义</h2>
+<p>摄像机的坐标轴采用右手法则，其中 x 和 y 轴确定水平面，z 轴的正数值方向指向正上方。</p>
+<p style="text-align:center;"><img loading="lazy" src="rightHandCoord.png" alt="" width="256" height="256"/></p>
+<h3 id="摄像机水平平移pan角度的定义">摄像机水平平移（pan）角度的定义</h3>
+<figure><p style="text-align:center;"><img loading="lazy" src="cameraPanAngle.png" alt="" width="512" /></p><figcaption>水平角度的定义</figcaption></figure>
+我们从上往下俯视摄像机（请注意上图中 xyz 坐标轴），这时候摄像机镜头以 z 轴进行的左右旋转被定义为 pan。其中，摄像机镜头光轴的正前方（y 轴）指向的方向定义为 0 度，当摄像机以 z 轴按照顺时针方向移动时，数值为正，反之则为负数。该数值由三字节（24 位）表示带正负号的浮点数值。第 23 位（数据开头从左往右第一位）是符号位 ，其中 0 表示正数，1 表示负数，并采用补码带形式表示负数。 接下来的 8 位（22 到 15）表示整数部分，剩余的 15 位（14 到 0）为小数部分。 这三个字节的数据取值范围为 -180.0 度（0xA60000）到 +180.0 度（0x5A0000）。为了容易计算，你也可以把 16 进制的数值转换成十进制，然后除以 32768 即可得到具体的角度，换句话说，就是说每一十六进制的数值，对应十进制 1/32768 角度。
+<blockquote>
+<p>文档中注明的符号位为第23为，但是笔者通过 UPD/IP 测试（win10， Unity3D， C#）的数据却是第0位为符号位，1～8位表示正数部分，数值表示的顺序正好跟文档中说明的内容相反，具体实际情况还请读者自行确认。</p>
+</blockquote>
+<h3 id="摄像机垂直倾斜-tilt角度的定义">摄像机垂直倾斜 （tilt）角度的定义</h3>
+<figure><p style="text-align:center;"><img loading="lazy" src="cameraTiltAngle.png" alt="" width="512" /></p><figcaption>倾斜角度的定义</figcaption></figure>
+同上面的方法类似，当我们从摄像机的右侧观看时 （请注意上图坐标轴），摄像机围绕 x 轴转动的角度被称作倾斜角度，这其中正方向为逆时针方向（往 z 轴移动）倾斜，反之为负值。Tilt 的数值的表达方式同 pan 一样，都是以 24 位二进制表示浮点数值，第 23 位（数据开头从左往右第一位）是符号位 ，接下来的 8 位（22 到15）表示整数部分，剩余的 15 位为小数部分。 Tilt 数据取值范围为 -90.0 度（0xD30000）到 +90.0 度（0x2D0000）。简便计算方法同样为每一十六进制的数值，对应十进制 1/32768 。
+<h3 id="摄像机滚动旋转-roll角度的定义">摄像机滚动旋转 （roll）角度的定义</h3>
+<figure><p style="text-align:center;"><img loading="lazy" src="cameraRollAngle.png" alt="" width="512" /></p><figcaption>旋转角度的定义</figcaption></figure>
+同一个道理，这次我们从摄像机背面向前观察（同样需注意上图右上角的坐标轴），顺指针方向为正，反之为负值。跟 pan， tilt 同样也是采用了 24 比特来表示数值。第 23 位是符号位 ，接下来的 8 位（22 到15）表示整数部分，剩余的 15 位为小数部分。 Roll 数据取值范围为 -180.0 度（0xA60000）到 +180.0 度（0x5A0000），简要换算方法为 1/32768；
+<h3 id="摄像机空间数值的定义">摄像机空间数值的定义</h3>
+<p>学过计算机图形学的朋友应该对坐标空间相当了解，这相机的 xyz 坐标空间的原点定义为摄像机追踪系统校准时的位置， xyz 轴的定义也同样为校准时摄像机自身的坐标轴，xyz 的数据均采用 24 比特来表示带符号的浮点数值，其中第 23 位是符号位 ，接下来的 17 位（22 到 6）表示整数部分，剩余的 6 位为小数部分。xyz 数据取值范围为 -131072.0 毫米（0x800000）到 +131072.0 毫米（0x7FFFFF），计算方法为 1/64 。</p>
+<h3 id="摄像机缩放zoom和焦点focus数值的定义">摄像机缩放（zoom）和焦点（focus）数值的定义</h3>
+<figure><p style="text-align:center;"><img loading="lazy" src="cameraZoomValue-1.png" alt="" width="512" /></p><figcaption>缩放数值的定义</figcaption></figure>
+摄像机的缩放数值定义为摄像机视锥的垂直夹角。可以从上图这样理解，从摄像机视原点出发，画两条沿着视锥体的线段，这两条线段的夹角被称作摄像机的缩放数值。可以把焦距理解为视锥的远平面 (far plane)，开口越大，远平面离摄像机越近，及焦距越短。远平面而相机的焦点被定义为相机镜头与对象将处于尖锐焦点之间的对象之间的距离。这两个数值均需要摄像机或是摄像机追踪系统基于镜头和相机的类型转换后才能到真正的缩放值。缩放和焦点值同样由 24 位二进制数字组成，不同的是它表示的是无符号正整数，就是说 24 位全部表示为正整数，他们的取值范围都为 1365~4095 之间。
+<blockquote>
+<p>我目前使用的是松下的 AW-UE150 摄像机，该相机能够通过 free-d协议自动发送摄像机镜头的缩放和焦点信息，但是我仍然不清楚它们是如何编码具体的镜头数据的，目前我已经联系过松下欧洲这边的客服，但是他们给我的答复是无法从 free-d 协议中准确获得镜头的实际焦距。就是说接收到的数据和镜头实际焦距并不是线性关系，并不能直接 Mapping 获得。例如摄像机发送的焦距数据范围是 0x555~0xFFF， 镜头焦距的可变范围为 8.8mm~176mm，如果我接收到 0xAAA，我并不能推断此时的焦距为 (176-8.8)/2 = 83.6mm。官方并没给我详细的答复，应该他们的客服并不是开发人员。这里个人推断，松下发送的数据应该直接和镜头的移动距离成线性关系，不过这个还需要测试后才知道。如有朋友清楚相机具体是如何将焦距等信息编码后发送的，请来信告知，这里先表示下感谢。</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>以上就是关于 free-d 协议的简要介绍，最后个人十分推荐阅读下参考链接中原版的 PDF 文件 来深入了解该协议的具体内容，这份文档里面非常详细的介绍了 free-d 系统是如何追踪摄像机的。不得不让人感叹，在当初那个年代，能够设计出这么复杂惊艳的系统，可惜碍于当时的硬件条件，该技术并没有得到大范围的推广。现如今，随着硬件水平的不断提升，游戏引擎诸如 Unreal 和 Unity3D 已经越来越多的应用到了影视领域的创作，这就使虚拟演播室技术得到了广泛推广，更加丰富了电视节目的创作，我个人也相信，在不久的将来，电视栏目的质量，尤其是直播领域，将会给观众带来更加震撼的视觉冲击体验。</p>
+<figure><img src="FreeDSystem.png"/><figcaption>
+            <h4>使用 free-d 技术搭建的摄像机追踪系统，演播室顶部由不同的 LED 图案组成，通过安装在摄像机上面的感应装置可以判断摄像机相对演播室顶部图案的位置，从而实现空间定位</h4>
+        </figcaption>
+</figure>
+
+<h2 id="参考文献">参考文献</h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Graham Thomas. „Mixed reality techniques for TV and their application for onset/pre-visualisation in film production“. In: International Workshop on Mixed Reality Technology for Filmmaking (DVD), 2006. 2006.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Free-d Virtual Studio System Operators Guide, Vinten Radamec, <a href="https://www.yumpu.com/en/document/view/6590984/free-d-virtual-studio-system-operators-guide-vinten-radamec" target="_blank" rel="noreferrer noopener"><a href="https://www.yumpu.com/en/document/view/6590984/free-d-virtual-studio-system-operators-guide-vinten-radamec" target="_blank" rel="noopener noreffer ">https://www.yumpu.com/en/document/view/6590984/free-d-virtual-studio-system-operators-guide-vinten-radamec</a></a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Vinten Radamec Free-d User Manual, Installation manual v1.4.4, <a rel="noreferrer noopener" href="https://www.manualsdir.com/manuals/641433/vinten-radamec-free-d.html?download" target="_blank"><a href="https://www.manualsdir.com/manuals/641433/vinten-radamec-free-d.html?download" target="_blank" rel="noopener noreffer ">https://www.manualsdir.com/manuals/641433/vinten-radamec-free-d.html?download</a></a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-04-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/freed/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://mahong.me/freed/" data-title="简述虚拟演播室中的 free-d 摄像机同步协议" data-hashtags="Camera-Tracking,Free-D,FreeD,Media Technology,Virtual Set,Virtual Studio,同步协议,媒体技术,摄像机,摄像机同步,摄像机追踪,虚拟演播室,虚拟演播室技术"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://mahong.me/freed/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://mahong.me/freed/" data-title="简述虚拟演播室中的 free-d 摄像机同步协议" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Pinterest" data-sharer="pinterest" data-url="https://mahong.me/freed/"><i class="fab fa-pinterest fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://mahong.me/freed/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://mahong.me/freed/" data-title="简述虚拟演播室中的 free-d 摄像机同步协议"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://mahong.me/freed/" data-title="简述虚拟演播室中的 free-d 摄像机同步协议"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://mahong.me/freed/" data-title="简述虚拟演播室中的 free-d 摄像机同步协议"><i data-svg-src="/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://mahong.me/freed/" data-title="简述虚拟演播室中的 free-d 摄像机同步协议"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/camera-tracking/">Camera-Tracking</a>,&nbsp;<a href="/tags/free-d/">Free-D</a>,&nbsp;<a href="/tags/freed/">FreeD</a>,&nbsp;<a href="/tags/media-technology/">Media Technology</a>,&nbsp;<a href="/tags/virtual-set/">Virtual Set</a>,&nbsp;<a href="/tags/virtual-studio/">Virtual Studio</a>,&nbsp;<a href="/tags/%E5%90%8C%E6%AD%A5%E5%8D%8F%E8%AE%AE/">同步协议</a>,&nbsp;<a href="/tags/%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF/">媒体技术</a>,&nbsp;<a href="/tags/%E6%91%84%E5%83%8F%E6%9C%BA/">摄像机</a>,&nbsp;<a href="/tags/%E6%91%84%E5%83%8F%E6%9C%BA%E5%90%8C%E6%AD%A5/">摄像机同步</a>,&nbsp;<a href="/tags/%E6%91%84%E5%83%8F%E6%9C%BA%E8%BF%BD%E8%B8%AA/">摄像机追踪</a>,&nbsp;<a href="/tags/%E8%99%9A%E6%8B%9F%E6%BC%94%E6%92%AD%E5%AE%A4/">虚拟演播室</a>,&nbsp;<a href="/tags/%E8%99%9A%E6%8B%9F%E6%BC%94%E6%92%AD%E5%AE%A4%E6%8A%80%E6%9C%AF/">虚拟演播室技术</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/secret_hider/" class="prev" rel="prev" title="隐私猎手"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>隐私猎手</a>
+            <a href="/pla/" class="next" rel="next" title="Piano LED for Arduino – 苹果版特效钢琴">Piano LED for Arduino – 苹果版特效钢琴<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2016 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mahong.me" target="_blank">图林根の烤肠</a></span>&nbsp;|&nbsp;<span class="license">All Rights Reserved</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://tu-lin-gen-nokao-chang.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"O4QGQ2BYHU","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a55503eed9917ab7b930644243c241fe","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
