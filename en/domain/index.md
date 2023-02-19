@@ -1,4 +1,4 @@
-# This domain name for sale
+# This domain is for sale
 
 
 # This domain is for sale
