@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>HRIR - 标签 - 图林根の烤肠</title>
-        <link>https://mahong.me/tags/hrir/</link>
+        <link>https://www.mahong.me/tags/hrir/</link>
         <description>HRIR - 标签 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Wed, 30 Dec 2015 17:11:00 &#43;0000</lastBuildDate><atom:link href="https://mahong.me/tags/hrir/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Wed, 30 Dec 2015 17:11:00 &#43;0000</lastBuildDate><atom:link href="https://www.mahong.me/tags/hrir/" rel="self" type="application/rss+xml" /><item>
     <title>HRTF 3D 音效 Matlab实现</title>
-    <link>https://mahong.me/hrtf_matlab/</link>
+    <link>https://www.mahong.me/hrtf_matlab/</link>
     <pubDate>Wed, 30 Dec 2015 17:11:00 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://mahong.me/hrtf_matlab/</guid>
+    <guid>https://www.mahong.me/hrtf_matlab/</guid>
     <description><![CDATA[尊重原创，请勿转载! 作者：图林根の烤肠 2020年6月注：因为年代实在久远，手头目前在忙于 Unity 和 AR 项目的事情，还有不少 iOS 的 app 待开发，待时间赋予会]]></description>
 </item>
 <item>
     <title>HRTF 3D 音效简明算法</title>
-    <link>https://mahong.me/hrtf/</link>
+    <link>https://www.mahong.me/hrtf/</link>
     <pubDate>Mon, 28 Dec 2015 15:50:18 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://mahong.me/hrtf/</guid>
+    <guid>https://www.mahong.me/hrtf/</guid>
     <description><![CDATA[尊重原创，请勿转载! 作者：图林根の烤肠 最近毕设的UI设计已经大体上完工，在圣诞之际开始了音频的HRTF合成，由于这方面的相关资料不是非常全面]]></description>
 </item>
 </channel>

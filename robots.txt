@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://mahong.me/sitemap.xml
+Sitemap: https://www.mahong.me/sitemap.xml

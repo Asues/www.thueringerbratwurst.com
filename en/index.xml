@@ -1,35 +1,35 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>图林根の烤肠</title>
-        <link>https://mahong.me/en/</link>
+        <link>https://www.mahong.me/en/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
             <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023ⒸAll Rights Reserved</copyright><lastBuildDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</lastBuildDate>
-            <atom:link href="https://mahong.me/en/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="https://www.mahong.me/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>MacOS - Piano LED for Arduino (Piano Visualizer)</title>
-    <link>https://mahong.me/en/pla/</link>
+    <link>https://www.mahong.me/en/pla/</link>
     <pubDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://mahong.me/en/pla/</guid>
+    <guid>https://www.mahong.me/en/pla/</guid>
     <description><![CDATA[Descrpition Piano LED for Arduino (PLA) is a piano visualizer, it is free, lightweight, without Ad. application that allows you to controll LED-Strips during you playing digital piano (you still need an Arduino board, like UNO). It is able to receive MIDI message from your digital piano and transmit the MIDI data to Arduino, so that Arduino is able to control LEDs with the MIDI-Streaming.
 Download Links Piano LED for Arduino v1.]]></description>
 </item>
 <item>
     <title>Secret Hider</title>
-    <link>https://mahong.me/en/secret_hider/</link>
+    <link>https://www.mahong.me/en/secret_hider/</link>
     <pubDate>Tue, 12 Nov 2019 03:17:40 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://mahong.me/en/secret_hider/</guid>
+    <guid>https://www.mahong.me/en/secret_hider/</guid>
     <description><![CDATA[Download App Store
 Product Features: Three different passwords to adapt to various situations. Normal Password: with this password will show your ordinary documents. Super Password: In order to show/hide your secret files. Emergency Password: this password will delete all your secret files before log in the app. Non-subscription system, once purchased for life. Working without networking, fully localized operation, completely eliminate privacy. A special double encryption method maximizes the hiding of your personal photos and videos.]]></description>
 </item>
 <item>
     <title>VIN Checker</title>
-    <link>https://mahong.me/en/vin/</link>
+    <link>https://www.mahong.me/en/vin/</link>
     <pubDate>Fri, 02 Jun 2017 18:39:19 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://mahong.me/en/vin/</guid>
+    <guid>https://www.mahong.me/en/vin/</guid>
     <description><![CDATA[If you want to leave a message, please use English, German or Chinese
 Download App Store
 Description If you intend to export cars to China, this application is your best helper. This application can quickly verify the vehicle identification code and tells you whether your car can be exported to China. It may save you a lot of time to contact with Chinese customers.
