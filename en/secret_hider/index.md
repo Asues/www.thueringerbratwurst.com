@@ -30,5 +30,5 @@ You are welcome to use `Secret Hider`, this application does not use any network
 1. Due to the privacy policy of iPhone, the developer of this application does not have access to any of your files saved in `Secret Hider`, which means you are responsible for your data, and the author is not responsible for any loss of data due to forgotten password, damaged phone, etc.
 2. Due to the sensitivity of the data, please backup regularly and copy the backup files to other external devices (such as your personal computer or mobile hard drive).
 3. Please create a backup of your current files before upgrading the software, as the author will not be responsible for any loss of your data due to software upgrades.
-4. If you purchased the App Sotre before version `4.0`, you will have unlimited access to all premium features (100 years after the current time of your phone).
+4. If you purchased the App Sotre before version `5.0`, you will have unlimited access to all premium features (100 years after the current time of your phone).
 5. If you have any questions about the app or feedback on bugs, please feel free to notify the author through the contact information in the app."

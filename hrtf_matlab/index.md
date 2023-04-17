@@ -5,7 +5,7 @@
 
 >2020年6月注：因为年代实在久远，手头目前在忙于 Unity 和 AR 项目的事情，还有不少 iOS 的 app 待开发，待时间赋予会抽空写一篇通过 Python 实现的内容，还请见谅～
 
->CIPIC HRTF 的数据已经无法通过原网站下载，我这里也没有全部数据的备份，如有同学有原始数据，还请发我一份。这里有一个亚琛工大的另一方 [HRTF数据](https://gershwin.akustik.rwth-aachen.de/hrtf/hrtf-lic.php)，可以尝试一下。
+>CIPIC HRTF 的数据已经找到，感谢‘海阔天空’同学的帮助，[Github 下载链接](https://github.com/amini-allight/cipic-hrtf-database)，无过无法下载我也把数据放到了百度网盘。
 
 ## 介绍
 讲完了 [上一篇](../hrtf/) 对实现方法，结下我们就可以开始实际执行代码了。本篇文章的代码都可以从我的 [Github](https://github.com/Asues/Matlab/tree/master/HRTF) 中的 `HRTF文件夹` 中找到。如果 Github 无法下载，可以移步 [百度网盘](https://pan.baidu.com/s/1dslhSYPa3bqSkioPjJtwpw) 密码:`lyi6`。
