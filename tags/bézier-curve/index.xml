@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>BÉZIER CURVE - 标签 - 图林根の烤肠</title>
-        <link>http://thueringerbratwurst.com/tags/b%C3%A9zier-curve/</link>
+        <link>http://www.thueringerbratwurst.com/tags/b%C3%A9zier-curve/</link>
         <description>BÉZIER CURVE - 标签 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sun, 15 Dec 2013 19:36:37 &#43;0000</lastBuildDate><atom:link href="http://thueringerbratwurst.com/tags/b%C3%A9zier-curve/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sun, 15 Dec 2013 19:36:37 &#43;0000</lastBuildDate><atom:link href="http://www.thueringerbratwurst.com/tags/b%C3%A9zier-curve/" rel="self" type="application/rss+xml" /><item>
     <title>Hermite Curve 以及 Bézier Curve 贝塞尔曲线的简要计算</title>
-    <link>http://thueringerbratwurst.com/bezier_curve/</link>
+    <link>http://www.thueringerbratwurst.com/bezier_curve/</link>
     <pubDate>Sun, 15 Dec 2013 19:36:37 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>http://thueringerbratwurst.com/bezier_curve/</guid>
+    <guid>http://www.thueringerbratwurst.com/bezier_curve/</guid>
     <description><![CDATA[Hermite Curve 以及 Bézier Curve 贝塞尔曲线的简要计算 尊重原创，请勿转载! 作者：图林根の烤肠 详细资料可以查询 wiki 的百科网站，以下内容为个人总结，难免出现错]]></description>
 </item>
 </channel>
