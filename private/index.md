@@ -2,7 +2,7 @@
 
 ## 我们是谁
 
-<strong class="privacy-policy-tutorial">推荐的文本： </strong>我们的站点地址是：https://www.mahong.me。
+<strong class="privacy-policy-tutorial">推荐的文本： </strong>我们的站点地址是：https://www.thueringerbratwurst.com。
 
 ## 评论
 
