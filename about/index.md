@@ -7,9 +7,10 @@
 ***
 
 ## 业余时间开发的app:
-类型|名称|下载|
+平台|名称|下载|
 |:----:|:----:|:----:|
 iOS|[平行进口车助手](https://apps.apple.com/cn/app/平行进口车助手/id1182796068)|[![im](vin.png)](https://apps.apple.com/cn/app/平行进口车助手/id1182796068)|
 iOS|[隐私猎手](https://apps.apple.com/us/app/%E9%9A%90%E7%A7%81%E7%8C%8E%E6%89%8B/id1312636920)|[![im](secretHider.png)](https://apps.apple.com/us/app/%E9%9A%90%E7%A7%81%E7%8C%8E%E6%89%8B/id1312636920)|
+MacOS|[Piano LED for Arduino](https://thueringerbratwurst.com/pla/)|[![im](pla.png)](https://thueringerbratwurst.com/pla/)|
 
 
