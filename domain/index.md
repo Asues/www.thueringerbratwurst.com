@@ -2,6 +2,6 @@
 
 
 # 该域名出售中
-如果您打算购买次域名，请 [邮件](mailto:ongoing_00grounds@icloud.com) 联系我，并请在邮件中注明：
+如果您打算购买次域名，请 [邮件](mailto:gallops-pane-06@icloud.com) 联系我，并请在邮件中注明：
 1. 您打算购买什么域名
 2. 您的出价是多少（美元）

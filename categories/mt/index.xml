@@ -1,47 +1,47 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>mt - 分类 - 图林根の烤肠</title>
-        <link>https://www.mahong.me/categories/mt/</link>
+        <link>http://thueringerbratwurst.com/categories/mt/</link>
         <description>mt - 分类 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sat, 03 Apr 2021 00:16:52 &#43;0000</lastBuildDate><atom:link href="https://www.mahong.me/categories/mt/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sat, 03 Apr 2021 00:16:52 &#43;0000</lastBuildDate><atom:link href="http://thueringerbratwurst.com/categories/mt/" rel="self" type="application/rss+xml" /><item>
     <title>简述虚拟演播室中的 free-d 摄像机同步协议</title>
-    <link>https://www.mahong.me/freed/</link>
+    <link>http://thueringerbratwurst.com/freed/</link>
     <pubDate>Sat, 03 Apr 2021 00:16:52 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.mahong.me/freed/</guid>
+    <guid>http://thueringerbratwurst.com/freed/</guid>
     <description><![CDATA[尊重原创，请勿转载! 作者：图林根の烤肠 前言 虚拟演播室（Virtual Studio，或者 Virtual Set）技术在上个世纪 80 年代就已经出现，它主要使用了]]></description>
 </item>
 <item>
     <title>HRTF 3D 音效 Matlab实现</title>
-    <link>https://www.mahong.me/hrtf_matlab/</link>
+    <link>http://thueringerbratwurst.com/hrtf_matlab/</link>
     <pubDate>Wed, 30 Dec 2015 17:11:00 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.mahong.me/hrtf_matlab/</guid>
+    <guid>http://thueringerbratwurst.com/hrtf_matlab/</guid>
     <description><![CDATA[尊重原创，请勿转载! 作者：图林根の烤肠 2020年6月注：因为年代实在久远，手头目前在忙于 Unity 和 AR 项目的事情，还有不少 iOS 的 app 待开发，待时间赋予会]]></description>
 </item>
 <item>
     <title>HRTF 3D 音效简明算法</title>
-    <link>https://www.mahong.me/hrtf/</link>
+    <link>http://thueringerbratwurst.com/hrtf/</link>
     <pubDate>Mon, 28 Dec 2015 15:50:18 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.mahong.me/hrtf/</guid>
+    <guid>http://thueringerbratwurst.com/hrtf/</guid>
     <description><![CDATA[尊重原创，请勿转载! 作者：图林根の烤肠 最近毕设的UI设计已经大体上完工，在圣诞之际开始了音频的HRTF合成，由于这方面的相关资料不是非常全面]]></description>
 </item>
 <item>
     <title>Minimum Phase Filters 最小相位滤波器简易</title>
-    <link>https://www.mahong.me/minimum_phase_filters/</link>
+    <link>http://thueringerbratwurst.com/minimum_phase_filters/</link>
     <pubDate>Sat, 01 Mar 2014 19:45:10 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.mahong.me/minimum_phase_filters/</guid>
+    <guid>http://thueringerbratwurst.com/minimum_phase_filters/</guid>
     <description><![CDATA[尊重原创，请勿转载! 作者：图林根の烤肠 理论上来说，所有的传递函数都可以写成如下的形式： 。其中 为我们需要的滤波器， 为全通滤波器（ap 为 All Pas]]></description>
 </item>
 <item>
     <title>Vector Quantizer LBG 矢量量化简要实例算法</title>
-    <link>https://www.mahong.me/lbg/</link>
+    <link>http://thueringerbratwurst.com/lbg/</link>
     <pubDate>Fri, 21 Feb 2014 19:49:35 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.mahong.me/lbg/</guid>
+    <guid>http://thueringerbratwurst.com/lbg/</guid>
     <description><![CDATA[Vector Quantizer LBG 矢量量化简要实例算法 尊重原创，请勿转载! 作者：图林根の烤肠 最近忙于考试复习 ADSP (数字信号处理) 中，查看了一些资料，大多写的十分繁琐，一点]]></description>
 </item>
 </channel>

@@ -1,7 +1,7 @@
 # Minimum Phase Filters 最小相位滤波器简易
 
 ## 尊重原创，请勿转载! 
-作者：[图林根の烤肠](https://mahong.me)
+作者：[图林根の烤肠](http://thueringerbratwurst.com)
 
 理论上来说，所有的传递函数都可以写成如下的形式：
 {{<raw>}}\(H(z) = H(z)_{min} · H(z)_{ap}\){{</raw>}}。其中 {{<raw>}}\(H(z)\){{</raw>}}  为我们需要的滤波器，{{<raw>}}\(H(z)_{ap}\){{</raw>}} 为全通滤波器（ap 为 All Pass缩写），{{<raw>}}\(H(z)_{min}\){{</raw>}} 就是我们需要计算求出的最小相位滤波器。
