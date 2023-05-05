@@ -1,7 +1,7 @@
 # HRTF 3D 音效 Matlab实现
 
 # 尊重原创，请勿转载! 
-作者：[图林根の烤肠](https://mahong.me)
+作者：[图林根の烤肠](https://www.thueringerbratwurst.com)
 
 >2020年6月注：因为年代实在久远，手头目前在忙于 Unity 和 AR 项目的事情，还有不少 iOS 的 app 待开发，待时间赋予会抽空写一篇通过 Python 实现的内容，还请见谅～
 

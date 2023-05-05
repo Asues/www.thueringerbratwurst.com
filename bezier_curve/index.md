@@ -2,7 +2,7 @@
 
 # Hermite Curve 以及 Bézier Curve 贝塞尔曲线的简要计算
 ## 尊重原创，请勿转载! 
-作者：[图林根の烤肠](https://mahong.me)
+作者：[图林根の烤肠](https://www.thueringerbratwurst.com)
 
 详细资料可以查询 wiki 的百科网站，以下内容为个人总结，难免出现错误，欢迎指正最后。
 

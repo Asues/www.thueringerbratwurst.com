@@ -2,7 +2,7 @@
 
 # Vector Quantizer LBG 矢量量化简要实例算法
 ## 尊重原创，请勿转载! 
-作者：[图林根の烤肠](https://mahong.me)
+作者：[图林根の烤肠](https://www.thueringerbratwurst.com)
 
 最近忙于考试复习 ADSP (数字信号处理) 中，查看了一些资料，大多写的十分繁琐，一点都不生动形象，特此举个实例，方便理解，文章内容来源于课上的课件.
 
