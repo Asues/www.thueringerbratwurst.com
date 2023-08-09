@@ -18,7 +18,7 @@ This shortcut is completely free to use, if you feel that it is helpful to you o
 {{< figure src="wechat.jpg" title="Buy me a sausage" >}}
 
 ## Download Link
-[MH Watermark v26](https://www.icloud.com/shortcuts/ec7e429d7ea5437aa69f0ac32bc5dd63)
+[MH Watermark v26](https://www.icloud.com/shortcuts/afc2f2aad8254fcbbd9740c68373f22f)
 
 
 ## How to use
