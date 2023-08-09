@@ -19,7 +19,7 @@
 {{< figure src="wechat.jpg" title="奖励作者吃根烤肠" >}}
 
 ## 下载地址
-[烤肠水印 v25](https://www.icloud.com/shortcuts/14705ca2fcfd4c49812ed77024d9c885)
+[烤肠水印 v26](https://www.icloud.com/shortcuts/9f26a407b331410fb10836d0e3080c4d)
 
 ## 更新内容
 v25: 无法验证地理信息时可以自动弹出手动输入框提示
