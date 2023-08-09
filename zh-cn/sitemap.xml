@@ -20,8 +20,24 @@
                     hreflang="zh-cn"
                     href="http://www.thueringerbratwurst.com/categories/"
                     /></url><url>
-            <loc>http://www.thueringerbratwurst.com/tags/ios/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.thueringerbratwurst.com/tags/iphone/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.thueringerbratwurst.com/tags/ios/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://www.thueringerbratwurst.com/en/tags/ios/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://www.thueringerbratwurst.com/tags/ios/"
+                    /></url><url>
+            <loc>http://www.thueringerbratwurst.com/tags/iphone/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://www.thueringerbratwurst.com/en/tags/iphone/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://www.thueringerbratwurst.com/tags/iphone/"
+                    /></url><url>
             <loc>http://www.thueringerbratwurst.com/tags/macos/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -40,7 +56,15 @@
                     hreflang="zh-cn"
                     href="http://www.thueringerbratwurst.com/posts/"
                     /></url><url>
-            <loc>http://www.thueringerbratwurst.com/tags/shortcut/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.thueringerbratwurst.com/tags/shortcut/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://www.thueringerbratwurst.com/en/tags/shortcut/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://www.thueringerbratwurst.com/tags/shortcut/"
+                    /></url><url>
             <loc>http://www.thueringerbratwurst.com/tags/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -50,11 +74,51 @@
                     hreflang="zh-cn"
                     href="http://www.thueringerbratwurst.com/tags/"
                     /></url><url>
-            <loc>http://www.thueringerbratwurst.com/tags/%E6%8D%B7%E5%BE%84/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.thueringerbratwurst.com/watermark/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.thueringerbratwurst.com/tags/%E5%BE%95%E5%8D%A1/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.thueringerbratwurst.com/tags/%E8%8B%B9%E6%9E%9C/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.thueringerbratwurst.com/tags/%E6%B0%B4%E5%8D%B0/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.thueringerbratwurst.com/tags/%E6%8D%B7%E5%BE%84/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://www.thueringerbratwurst.com/en/tags/%E6%8D%B7%E5%BE%84/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://www.thueringerbratwurst.com/tags/%E6%8D%B7%E5%BE%84/"
+                    /></url><url>
+            <loc>http://www.thueringerbratwurst.com/watermark/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://www.thueringerbratwurst.com/en/watermark/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://www.thueringerbratwurst.com/watermark/"
+                    /></url><url>
+            <loc>http://www.thueringerbratwurst.com/tags/%E5%BE%95%E5%8D%A1/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://www.thueringerbratwurst.com/en/tags/%E5%BE%95%E5%8D%A1/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://www.thueringerbratwurst.com/tags/%E5%BE%95%E5%8D%A1/"
+                    /></url><url>
+            <loc>http://www.thueringerbratwurst.com/tags/%E8%8B%B9%E6%9E%9C/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://www.thueringerbratwurst.com/en/tags/%E8%8B%B9%E6%9E%9C/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://www.thueringerbratwurst.com/tags/%E8%8B%B9%E6%9E%9C/"
+                    /></url><url>
+            <loc>http://www.thueringerbratwurst.com/tags/%E6%B0%B4%E5%8D%B0/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://www.thueringerbratwurst.com/en/tags/%E6%B0%B4%E5%8D%B0/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://www.thueringerbratwurst.com/tags/%E6%B0%B4%E5%8D%B0/"
+                    /></url><url>
             <loc>http://www.thueringerbratwurst.com/</loc><lastmod>2022-07-27T19:47:31&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
