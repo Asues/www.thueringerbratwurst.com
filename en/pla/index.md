@@ -13,9 +13,8 @@ Piano LED for Arduino v1.0:
 [Mega Upload](https://mega.nz/file/LHBDnIKa#Pr-MxP1Z7d9Q6Bov0dXnC5QXqigoT0Y1XQUhZjIgNy4)
 
 ## Demo Videos
-{{< youtube SiLaIkchdn4 >}}
-
 {{< youtube UoEaF0MRrjE >}}
+{{< youtube SiLaIkchdn4 >}}
 
 >If you really do not know how to programm or do not have any of hardware knowlege, you can ask me to buy complet sets or send me your device, but I will charge you 20 Euro (excl. postage) in return for coffee 😄 
 
