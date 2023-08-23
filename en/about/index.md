@@ -8,8 +8,11 @@ If you have any questions, please [email](mailto:crosser_wack.0m@icloud.com) me.
 
 ## Related amateur developed applications:
 
-Plattform|Name|Download|
-|:----:|:----:|:----:|
-iOS|[VIN Helper](https://apps.apple.com/us/app/%E5%B9%B3%E8%A1%8C%E8%BF%9B%E5%8F%A3%E8%BD%A6%E5%8A%A9%E6%89%8B/id1182796068)|[![im](vin.png)](https://apps.apple.com/us/app/%E5%B9%B3%E8%A1%8C%E8%BF%9B%E5%8F%A3%E8%BD%A6%E5%8A%A9%E6%89%8B/id1182796068)|
-iOS|[Secret Hider](https://apps.apple.com/us/app/%E9%9A%90%E7%A7%81%E7%8C%8E%E6%89%8B/id1312636920)|[![im](secretHider.png)](https://apps.apple.com/us/app/%E9%9A%90%E7%A7%81%E7%8C%8E%E6%89%8B/id1312636920)|
-MacOS|[Piano LED for Arduino](https://thueringerbratwurst.com/pla/)|[![im](pla.png)](https://thueringerbratwurst.com/pla/)|
+### [iOS] VIN Checker
+<a href="https://apps.apple.com/us/app/vin-checker/id1182796068?itscg=30200&amp;itsct=apps_box_appicon" style="width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/b1/89/bd/b189bde5-60c6-d201-11a2-449bf9afe9cf/AppIcon-1x_U007emarketing-0-8-0-85-220.png/540x540bb.jpg" alt="VIN Checker" style="width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;"></a> <a href="https://apps.apple.com/us/app/vin-checker/id1182796068?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1513555200" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a> 
+
+### [iOS] Secret Hider
+<a href="https://apps.apple.com/us/app/secret-hider/id1312636920?itscg=30200&amp;itsct=apps_box_appicon" style="width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/37/72/51/37725183-4aaf-01e8-8240-c3f3cbf82fc6/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/540x540bb.jpg" alt="Secret Hider" style="width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;"></a> <a href="https://apps.apple.com/us/app/secret-hider/id1312636920?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1513296000" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
+
+### [MacOS] Piano LED for Arduino
+[](https://thueringerbratwurst.com/pla/)|[![im](pla.png)](https://thueringerbratwurst.com/pla/)|
