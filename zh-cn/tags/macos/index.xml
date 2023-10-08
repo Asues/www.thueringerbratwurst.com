@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>MacOS - 标签 - 图林根の烤肠</title>
-        <link>https://www.thueringerbratwurst.com/zh-cn/tags/macos/</link>
+        <link>https://thueringerbratwurst.com/zh-cn/tags/macos/</link>
         <description>MacOS - 标签 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Wed, 27 Jul 2022 19:47:31 &#43;0000</lastBuildDate><atom:link href="https://www.thueringerbratwurst.com/zh-cn/tags/macos/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Wed, 27 Jul 2022 19:47:31 &#43;0000</lastBuildDate><atom:link href="https://thueringerbratwurst.com/zh-cn/tags/macos/" rel="self" type="application/rss+xml" /><item>
     <title>捷径 – 烤肠水印 - 徕卡水印</title>
-    <link>https://www.thueringerbratwurst.com/zh-cn/watermark/</link>
+    <link>https://thueringerbratwurst.com/zh-cn/watermark/</link>
     <pubDate>Wed, 27 Jul 2022 19:47:31 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.thueringerbratwurst.com/zh-cn/watermark/</guid>
+    <guid>https://thueringerbratwurst.com/zh-cn/watermark/</guid>
     <description><![CDATA[添加了图片信息的水印图片 烤肠水印 本产品为捷径代码，无需下载任何app，直接使用。该捷径代码支持 iPhone, iPad 和 Mac电脑 使用。 产品特色 支持添加各大主流]]></description>
 </item>
 <item>
     <title>Piano LED for Arduino – 苹果版特效钢琴</title>
-    <link>https://www.thueringerbratwurst.com/zh-cn/pla/</link>
+    <link>https://thueringerbratwurst.com/zh-cn/pla/</link>
     <pubDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.thueringerbratwurst.com/zh-cn/pla/</guid>
+    <guid>https://thueringerbratwurst.com/zh-cn/pla/</guid>
     <description><![CDATA[介绍 Piano LED for Arduino (以下简称PLA) 是一个完全免费、轻量级无广告的 MacOS 程序，它可以解析电钢琴发送的 MIDI 文件，从而发送控制指令到 Arduino， 从而让您]]></description>
 </item>
 </channel>

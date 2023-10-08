@@ -1,31 +1,31 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - 分类 - 图林根の烤肠</title>
-        <link>https://www.thueringerbratwurst.com/zh-cn/categories/</link>
+        <link>https://thueringerbratwurst.com/zh-cn/categories/</link>
         <description>Categories - 分类 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sat, 07 Oct 2023 13:08:07 &#43;0000</lastBuildDate><atom:link href="https://www.thueringerbratwurst.com/zh-cn/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sat, 07 Oct 2023 13:08:07 &#43;0000</lastBuildDate><atom:link href="https://thueringerbratwurst.com/zh-cn/categories/" rel="self" type="application/rss+xml" /><item>
     <title>app</title>
-    <link>https://www.thueringerbratwurst.com/zh-cn/categories/app/</link>
+    <link>https://thueringerbratwurst.com/zh-cn/categories/app/</link>
     <pubDate>Sat, 07 Oct 2023 13:08:07 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.thueringerbratwurst.com/zh-cn/categories/app/</guid>
+    <guid>https://thueringerbratwurst.com/zh-cn/categories/app/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>mt</title>
-    <link>https://www.thueringerbratwurst.com/zh-cn/categories/mt/</link>
+    <link>https://thueringerbratwurst.com/zh-cn/categories/mt/</link>
     <pubDate>Sat, 03 Apr 2021 00:16:52 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.thueringerbratwurst.com/zh-cn/categories/mt/</guid>
+    <guid>https://thueringerbratwurst.com/zh-cn/categories/mt/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>其它</title>
-    <link>https://www.thueringerbratwurst.com/zh-cn/categories/%E5%85%B6%E5%AE%83/</link>
+    <link>https://thueringerbratwurst.com/zh-cn/categories/%E5%85%B6%E5%AE%83/</link>
     <pubDate>Mon, 02 Sep 2013 13:33:34 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.thueringerbratwurst.com/zh-cn/categories/%E5%85%B6%E5%AE%83/</guid>
+    <guid>https://thueringerbratwurst.com/zh-cn/categories/%E5%85%B6%E5%AE%83/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

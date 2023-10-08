@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>WS2812B - 标签 - 图林根の烤肠</title>
-        <link>https://www.thueringerbratwurst.com/zh-cn/tags/ws2812b/</link>
+        <link>https://thueringerbratwurst.com/zh-cn/tags/ws2812b/</link>
         <description>WS2812B - 标签 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</lastBuildDate><atom:link href="https://www.thueringerbratwurst.com/zh-cn/tags/ws2812b/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</lastBuildDate><atom:link href="https://thueringerbratwurst.com/zh-cn/tags/ws2812b/" rel="self" type="application/rss+xml" /><item>
     <title>Piano LED for Arduino – 苹果版特效钢琴</title>
-    <link>https://www.thueringerbratwurst.com/zh-cn/pla/</link>
+    <link>https://thueringerbratwurst.com/zh-cn/pla/</link>
     <pubDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://www.thueringerbratwurst.com/zh-cn/pla/</guid>
+    <guid>https://thueringerbratwurst.com/zh-cn/pla/</guid>
     <description><![CDATA[介绍 Piano LED for Arduino (以下简称PLA) 是一个完全免费、轻量级无广告的 MacOS 程序，它可以解析电钢琴发送的 MIDI 文件，从而发送控制指令到 Arduino， 从而让您]]></description>
 </item>
 </channel>
