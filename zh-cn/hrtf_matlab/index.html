@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>HRTF 3D 音效 Matlab实现 - 图林根の烤肠</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="HRTF 3D 音效 Matlab实现" />
+<meta property="og:description" content="尊重原创，请勿转载! 作者：图林根の烤肠 2020年6月注：因为年代实在久远，手头目前在忙于 Unity 和 AR 项目的事情，还有不少 iOS 的 app 待开发，待时间赋予会" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="thueringerbratwurst.com/zh-cn/hrtf_matlab/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-12-30T17:11:00+00:00" />
+<meta property="article:modified_time" content="2015-12-30T17:11:00+00:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HRTF 3D 音效 Matlab实现"/>
+<meta name="twitter:description" content="尊重原创，请勿转载! 作者：图林根の烤肠 2020年6月注：因为年代实在久远，手头目前在忙于 Unity 和 AR 项目的事情，还有不少 iOS 的 app 待开发，待时间赋予会"/>
+<meta name="application-name" content="图林根の烤肠">
+<meta name="apple-mobile-web-app-title" content="图林根の烤肠"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="thueringerbratwurst.com/zh-cn/hrtf_matlab/" /><link rel="prev" href="thueringerbratwurst.com/zh-cn/hrtf/" /><link rel="next" href="thueringerbratwurst.com/zh-cn/vin/" /><link rel="stylesheet" href="/thueringerbratwurst.com/css/style.min.css"><link rel="preload" href="/thueringerbratwurst.com/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/thueringerbratwurst.com/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/thueringerbratwurst.com/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/thueringerbratwurst.com/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "HRTF 3D 音效 Matlab实现",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "thueringerbratwurst.com\/zh-cn\/hrtf_matlab\/"
+        },"image": ["\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "3D音频, BRIR, HRIR, HRTF, 空间音频","wordcount":  2794 ,
+        "url": "thueringerbratwurst.com\/zh-cn\/hrtf_matlab\/","datePublished": "2015-12-30T17:11:00+00:00","dateModified": "2015-12-30T17:11:00+00:00","license": "2023Ⓒ版权所有，未经过作者许可，不得转载。","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "\/images\/avatar.jpg"},"author": {
+                "@type": "Person",
+                "name": "图林根の烤肠"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="thueringerbratwurst.com/zh-cn/" title="图林根の烤肠"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>图林根の烤肠</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/app/" title="app"> App </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/mt/"> 媒体技术 </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/asues" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="thueringerbratwurst.com/zh-cn/hrtf_matlab/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="thueringerbratwurst.com/zh-cn/" title="图林根の烤肠"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>图林根の烤肠</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/app/" title="app">App</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/mt/" title="">媒体技术</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/asues" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="thueringerbratwurst.com/zh-cn/hrtf_matlab/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HRTF 3D 音效 Matlab实现</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://www.thueringerbratwurst.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>图林根の烤肠</a></span>&nbsp;<span class="post-category">收录于 <a href="thueringerbratwurst.com/zh-cn/categories/mt/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>mt</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2015-12-30">2015-12-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2794 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#总体概览">总体概览</a></li>
+    <li><a href="#代码介绍">代码介绍</a>
+      <ul>
+        <li><a href="#读取hrtf函数">读取HRTF函数</a></li>
+        <li><a href="#卷积前的操作">卷积前的操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#信号卷积">信号卷积</a></li>
+    <li><a href="#解语">解语</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="尊重原创请勿转载">尊重原创，请勿转载!</h1>
+<p>作者：<a href="https://www.thueringerbratwurst.com" target="_blank" rel="noopener noreffer ">图林根の烤肠</a></p>
+<blockquote>
+<p>2020年6月注：因为年代实在久远，手头目前在忙于 Unity 和 AR 项目的事情，还有不少 iOS 的 app 待开发，待时间赋予会抽空写一篇通过 Python 实现的内容，还请见谅～</p>
+</blockquote>
+<blockquote>
+<p>CIPIC HRTF 的数据已经找到，感谢‘海阔天空’同学的帮助，<a href="https://github.com/amini-allight/cipic-hrtf-database" target="_blank" rel="noopener noreffer ">Github 下载链接</a>，无过无法下载我也把数据放到了百度网盘。</p>
+</blockquote>
+<h2 id="介绍">介绍</h2>
+<p>讲完了 <a href="../hrtf/" rel="">上一篇</a> 对实现方法，结下我们就可以开始实际执行代码了。本篇文章的代码都可以从我的 <a href="https://github.com/Asues/Matlab/tree/master/HRTF" target="_blank" rel="noopener noreffer ">Github</a> 中的 <code>HRTF文件夹</code> 中找到。如果 Github 无法下载，可以移步 <a href="https://pan.baidu.com/s/1dslhSYPa3bqSkioPjJtwpw" target="_blank" rel="noopener noreffer ">百度网盘</a> 密码:<code>lyi6</code>。</p>
+<p>首先一句话概括3D音频实现的原理：找到对应空间的HRIR数值，然后卷积音频信号即可，是不是看上去很简单😀</p>
+<h2 id="总体概览">总体概览</h2>
+<p>首先主要介绍一下这些文件的功能：</p>
+<ol>
+<li>doc 文件夹里面是关于 CIPIC HRTF 的文档说明，具体相关的资料也可以参考 <del><a href="http://interface.cipic.ucdavis.edu/sound/hrtf.html" target="_blank" rel="noopener noreffer ">CIPIC 官网</a></del>，个人建议下载官方的那个全部 Matlab 文档（MATLAB version），总计170 Mb 左右, 在下载完成后可以运行里面的<code>showdata.m</code>文件，从而查看各个位置相关的频谱信息。</li>
+<li><code>audio\_with\_brir.m</code> 该函数是主要算法，描述了音频文件如何与 HRTF数据进行卷积，从而实现3D音效。</li>
+<li><code>hrir\_final.mat</code>是 CIPCI KEMAR 21号（Subject_021）的 HRTF 数据，该数据采用了大耳廓进行采集。</li>
+<li><code>load\_CIPIC\_HRIR.m</code>的主要功能是读取 <code>hrir\_final.mat</code> 的左右耳 HRIR 数据，然后在用于<code>audio\_with_brir.m</code>文件进行信号卷积。</li>
+<li><code>nokia.wav</code> 这个不用多说了，一段测试音频，诺基亚的经典铃声。</li>
+<li><code>main.m</code> 为代码的运行的主文件。</li>
+</ol>
+<p>下面开始分别对各个文件进行解释说明：</p>
+<h2 id="代码介绍">代码介绍</h2>
+<h3 id="读取hrtf函数">读取HRTF函数</h3>
+<p>在文件 <code>doc/hrir_data_documentation.pdf</code>中，标明了该 HRTF 数据的空间坐标系可以解释为：与头部水平的<code>Azimut方位角</code> 和头部垂直的 <code>Elevation 立体角</code>。其中 Azimut 以头部正前方为0度，-90°为左耳方向，+90°为右耳方向。取值为 <code>[-80:-65:-55:-45:5:45:55:65:80]</code> 一共25个点，其中从-45°到45°梯度为5°。Elevation 的取值范围为 [-45 + 5.625  * （0：49）]一共50个采样点，其中低于头部为负值，高于头部为正值。说得有些抽象，看下面一张图便一路了然。
+<figure><img src="ks.png"/><figcaption>
+            <h4>Azimuth &amp; Elevation</h4>
+        </figcaption>
+</figure>
+</p>
+<p>图a从左往右数有25个点（25列，可以想像把手臂伸直，指向你的正前方，然后左右移动手臂画出平行于眼前的一个弧形，这个扇形平面由25个点组成），与之对应的即为Azimut，图b对应的为 Elevation，一共50个采样点(同理手臂伸直，上下摆动组成另一个扇形平面，这个平面一共50横行，从B图中右面逆时针数即可)。</p>
+<p>接下我们来看HRTF的数据文件，双击通过 Matlab 调用<code>hrir\_final.mat</code>文件后会发现，<code>hrir\_l 与 hrir\_r</code>就是与之对应的左右耳HRIR数据。但是随之来的问题就是<code>hrir\_l</code>的文件 size 是 <code>25 x 50 x 200</code> ，这是因为 HRTF 的数据是一个三维空间数据，其中的25表示的是 Azimut（图a），50为 Elevation（图b），200为该点的数据。假如我们需要取一个平行于头部正前方和正后方的一个圆形区域，由图b的紫色横线可知，脸部正前方的 Elevation 对应的点的数值顺序为9（图b，逆时针数，紫色的线为第9），请不要忘记 Azimut的取值范围为左耳<code>-80°</code>到右耳<code>+80°</code>的一个扇形区域，所以这时候我们得到的数据只是头部前面的半扇形区域。为了更好地理解，可以把双手分别向左右耳的方向伸展为80°，这时候双手围成的一个水平扇形区域就是图a所示的区域，这时候再把双手一同上下移动，就会构成如图b中一样的一个三维空间。这时候我们把紫线延伸到图a可以看到，头部正后方 Elevation 为41的区域，正是我们想要的后方区域。明白了上面的原理，再来看代码第22行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">%（load_CIPIC_HRIR.m）</span>
+</span></span><span class="line"><span class="cl"><span class="n">out</span> <span class="p">=</span> <span class="p">[</span><span class="nb">squeeze</span><span class="p">(</span><span class="n">hrir_l</span><span class="p">(:,</span><span class="n">front</span><span class="p">,:));</span><span class="n">flip</span><span class="p">(</span><span class="nb">squeeze</span><span class="p">(</span><span class="n">hrir_l</span><span class="p">(:,</span><span class="n">back</span><span class="p">,:)),</span><span class="mi">1</span><span class="p">)];</span>      
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该行代码的意义为：先取头部正前方 Elevation 为 front 的25个水平面上的点，再取脸部后方 Elevation为 back 的25个水平面上面的点翻转后在合并，就组成了一个由50个点组成的水平面。至于说为什么要翻转后平面，因为 hrtf 的取值是按照顺时针采样的，而后半部数据是前半部数据的镜像，不翻转数据直接进行卷积后会发现声音是从[-80-&gt;0-&gt;80-&gt;-80-&gt;-180-&gt;80]的顺序播放。</p>
+<h3 id="卷积前的操作">卷积前的操作</h3>
+<p>得到了 HRIR 数据后我们就可以开始正式进行信号的卷积了，这里我假设您已经阅读完我 <a href="../hrtf/" rel="">前一篇</a> 的文章并以理解其原理。</p>
+<p>首先来看<code>audio_with_brir.m</code>函数的33到38行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">% if the remainder not equal to zero,then calculate the padding zeros</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">remainder</span> <span class="o">&gt;</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">padding_zero</span> <span class="p">=</span> <span class="n">points_number</span> <span class="o">-</span> <span class="n">remainder</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c">% padding zeros with audio file</span>
+</span></span><span class="line"><span class="cl">   <span class="n">audioIn</span> <span class="p">=</span> <span class="p">[</span><span class="n">audioIn</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">padding_zero</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这段代码的意义是为了进行给音频末尾补零，以便能够让输入音频平均分成N等分。算法就是首按照输入的 BRIR 数据有多少个纵列值（BRIR 必须包括左右耳的数据，并且数值为纵列）来进行音频的 N 等分，这里为<code>points_number</code>，然后查看音频的总长度除以需要 N 等分的余数来进行补零。还是举个简单的例子，<code>11/4</code> 余数为 <code>3</code>，则需要补零的个数为 <code>4 - 3 = 1</code>。</p>
+<p>接下来就是设计窗函数来进行淡入淡出，以及高通与低通的滤波器，这里的截止频率分别为<code>20kHz</code>与<code>20Hz</code>。</p>
+<p>第55到64行，L和R分别为左右耳，即为音频分割后的音频片段与 BRIR 数据进行卷积。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">points_number</span> <span class="c">% because brir has only 6 points in Azimut   {300, 330, 0, 60, 120, 180}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">% faltung 卷积 </span>
+</span></span><span class="line"><span class="cl">    <span class="n">L</span> <span class="p">=</span> <span class="n">filter</span><span class="p">(</span><span class="n">brir</span><span class="p">(:,</span><span class="mi">2</span><span class="o">*</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">audioIn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">step</span><span class="o">*</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">step</span><span class="o">*</span><span class="nb">i</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">R</span> <span class="p">=</span> <span class="n">filter</span><span class="p">(</span><span class="n">brir</span><span class="p">(:,</span><span class="mi">2</span><span class="o">*</span><span class="nb">i</span><span class="p">)</span><span class="o">&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">audioIn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">step</span><span class="o">*</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">step</span><span class="o">*</span><span class="nb">i</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">segment_L</span><span class="p">(</span><span class="nb">i</span><span class="p">,:)</span> <span class="p">=</span> <span class="n">L</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">segment_R</span><span class="p">(</span><span class="nb">i</span><span class="p">,:)</span> <span class="p">=</span> <span class="n">R</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后是67到78行：为了代码方便，这里的把音频的片段1和片段最后一段也进行了淡入淡出效果，虽然我们不需要第一段开头的淡入和最后一段的淡出，但是加上后也无妨。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">% 信号的淡入淡出操作</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">points_number</span>
+</span></span><span class="line"><span class="cl">    <span class="c">% the last segment need only fade in, so we make that later, first make</span>
+</span></span><span class="line"><span class="cl">    <span class="c">% fade in and fade out except the last segment</span>
+</span></span><span class="line"><span class="cl">    <span class="c">% add fade in for each segment at the beginning</span>
+</span></span><span class="line"><span class="cl">    <span class="n">segment_L</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">segment_L</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">.*</span> <span class="n">window</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">segment_R</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">segment_R</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">.*</span> <span class="n">window</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">% add fade out for each segment at the end</span>
+</span></span><span class="line"><span class="cl">    <span class="n">segment_L</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="k">end</span> <span class="o">-</span> <span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)</span> <span class="p">=</span> <span class="n">segment_L</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="k">end</span> <span class="o">-</span> <span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)</span> <span class="o">.*</span> <span class="n">window</span><span class="p">((</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">segment_R</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="k">end</span> <span class="o">-</span> <span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)</span> <span class="p">=</span> <span class="n">segment_R</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="k">end</span> <span class="o">-</span> <span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)</span> <span class="o">.*</span> <span class="n">window</span><span class="p">((</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">);</span>    
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>86和87行为对第一个音频片段的操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">left</span> <span class="p">=</span> <span class="p">[</span><span class="n">segment_L</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span> <span class="o">-</span> <span class="p">(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="n">segment_L</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="k">end</span> <span class="o">-</span> <span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)</span> <span class="o">+</span> <span class="n">segment_L</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">))];</span>  
+</span></span><span class="line"><span class="cl"><span class="n">right</span> <span class="p">=</span> <span class="p">[</span><span class="n">segment_R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span> <span class="o">-</span> <span class="p">(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="n">segment_R</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="k">end</span> <span class="o">-</span> <span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)</span> <span class="o">+</span> <span class="n">segment_R</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">))];</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>93到96为直到倒数第二个音频片段的合并。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">% except the last segment</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">2</span> <span class="p">:</span> <span class="n">points_number</span> <span class="o">-</span> <span class="mi">1</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">left</span> <span class="p">=</span> <span class="p">[</span><span class="n">left</span> <span class="n">segment_L</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="o">-</span><span class="p">(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="n">segment_L</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="k">end</span> <span class="o">-</span> <span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)</span> <span class="o">+</span> <span class="n">segment_L</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">))];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">right</span> <span class="p">=</span> <span class="p">[</span><span class="n">right</span> <span class="n">segment_R</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="o">-</span><span class="p">(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="n">segment_R</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="k">end</span> <span class="o">-</span> <span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)</span> <span class="o">+</span> <span class="n">segment_R</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span><span class="p">))];</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>100到120行为最后一段片段的合并。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">n</span> <span class="p">=</span> <span class="n">points_number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">left</span> <span class="p">=</span> <span class="p">[</span><span class="n">left</span> <span class="n">segment_L</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="n">right</span> <span class="p">=</span> <span class="p">[</span><span class="n">right</span> <span class="n">segment_R</span><span class="p">(</span><span class="n">n</span><span class="p">,(</span><span class="n">window_N</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="k">end</span><span class="p">)];</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>余下的代码就是音频的归一化与滤波。</p>
+<h2 id="信号卷积">信号卷积</h2>
+<p>明白了上面两个函数的功能后我们可以开始正式进行信号的卷积操作，这时候来看<code>main</code>文件，15,16行调用了load_CIPIC_HRIR函数，分别读取了 Elevation 为9和41的数值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">hrir_l</span> <span class="p">=</span> <span class="n">load_CIPIC_HRIR</span><span class="p">(</span><span class="n">hrir_fn</span><span class="p">,</span><span class="n">front</span><span class="p">,</span><span class="n">back</span><span class="p">,</span><span class="s">&#39;left&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">hrir_r</span> <span class="p">=</span> <span class="n">load_CIPIC_HRIR</span><span class="p">(</span><span class="n">hrir_fn</span><span class="p">,</span><span class="n">front</span><span class="p">,</span><span class="n">back</span><span class="p">,</span><span class="s">&#39;right&#39;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>22到26行把所得到的所有HRIR数据分别按照左耳1，右耳1，左耳2，右耳2等等整合到了一起。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">hrir</span> <span class="p">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">hrir_l</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hrir</span><span class="p">(:,</span><span class="nb">i</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">hrir_l</span><span class="p">(:,</span><span class="nb">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hrir</span><span class="p">(:,</span><span class="nb">i</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span>  <span class="n">hrir_r</span><span class="p">(:,</span><span class="nb">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后就是<code>audio_with_brir</code>函数，输入参数为音频文件与最后的 HRIR。然后呢？没有然后了，赶紧来听听诺基亚的环绕音效吧。</p>
+<h2 id="解语">解语</h2>
+<p>以上就是最近几天来关于本科毕设中 HRTF 的一些编程总结，如果想采用其它环绕或者有个性的方法，只需要读取不同空间位置的 HRIR 数据即可。如仍有其它问题的话，欢迎邮件咨询。
+最后祝愿各位2016新年快乐~</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2015-12-30</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="thueringerbratwurst.com/zh-cn/hrtf_matlab/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/" data-title="HRTF 3D 音效 Matlab实现" data-hashtags="3D音频,BRIR,HRIR,HRTF,空间音频"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/" data-title="HRTF 3D 音效 Matlab实现" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Pinterest" data-sharer="pinterest" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/"><i class="fab fa-pinterest fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/" data-title="HRTF 3D 音效 Matlab实现"><i data-svg-src="/thueringerbratwurst.com/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/" data-title="HRTF 3D 音效 Matlab实现"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/" data-title="HRTF 3D 音效 Matlab实现"><i data-svg-src="/thueringerbratwurst.com/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="thueringerbratwurst.com/zh-cn/hrtf_matlab/" data-title="HRTF 3D 音效 Matlab实现"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/3d%E9%9F%B3%E9%A2%91/">3D音频</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/brir/">BRIR</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/hrir/">HRIR</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/hrtf/">HRTF</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/%E7%A9%BA%E9%97%B4%E9%9F%B3%E9%A2%91/">空间音频</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="thueringerbratwurst.com/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="thueringerbratwurst.com/zh-cn/hrtf/" class="prev" rel="prev" title="HRTF 3D 音效简明算法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>HRTF 3D 音效简明算法</a>
+            <a href="thueringerbratwurst.com/zh-cn/vin/" class="next" rel="next" title="平行进口车助手">平行进口车助手<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2015 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://www.thueringerbratwurst.com" target="_blank">图林根の烤肠</a></span>&nbsp;|&nbsp;<span class="license">All Rights Reserved</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/thueringerbratwurst.com/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://tu-lin-gen-nokao-chang.disqus.com/embed.js" defer></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"O4QGQ2BYHU","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a55503eed9917ab7b930644243c241fe","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/thueringerbratwurst.com/js/theme.min.js"></script></body>
+</html>

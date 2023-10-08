@@ -1,31 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - 分类 - 图林根の烤肠</title>
-        <link>http://thueringerbratwurst.com/categories/</link>
-        <description>Categories - 分类 - 图林根の烤肠</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Wed, 27 Jul 2022 19:47:31 &#43;0000</lastBuildDate><atom:link href="http://thueringerbratwurst.com/categories/" rel="self" type="application/rss+xml" /><item>
+        <title>Categories - Category - 图林根の烤肠</title>
+        <link>thueringerbratwurst.com/categories/</link>
+        <description>Categories - Category - 图林根の烤肠</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023ⒸAll Rights Reserved</copyright><lastBuildDate>Sat, 07 Oct 2023 23:08:07 &#43;0000</lastBuildDate><atom:link href="thueringerbratwurst.com/categories/" rel="self" type="application/rss+xml" /><item>
     <title>app</title>
-    <link>http://thueringerbratwurst.com/categories/app/</link>
-    <pubDate>Wed, 27 Jul 2022 19:47:31 &#43;0000</pubDate>
+    <link>thueringerbratwurst.com/categories/app/</link>
+    <pubDate>Sat, 07 Oct 2023 23:08:07 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>http://thueringerbratwurst.com/categories/app/</guid>
+    <guid>thueringerbratwurst.com/categories/app/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>mt</title>
-    <link>http://thueringerbratwurst.com/categories/mt/</link>
-    <pubDate>Sat, 03 Apr 2021 00:16:52 &#43;0000</pubDate>
-    <author>图林根の烤肠</author>
-    <guid>http://thueringerbratwurst.com/categories/mt/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>其它</title>
-    <link>http://thueringerbratwurst.com/categories/%E5%85%B6%E5%AE%83/</link>
+    <title>Others</title>
+    <link>thueringerbratwurst.com/categories/others/</link>
     <pubDate>Mon, 02 Sep 2013 13:33:34 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>http://thueringerbratwurst.com/categories/%E5%85%B6%E5%AE%83/</guid>
+    <guid>thueringerbratwurst.com/categories/others/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -1,8 +1,8 @@
-# 该域名出售中...
+# This domain is for sale...
 
-请通过 [邮件][1] 联系我，并请您注明:
+Please send me [email][1] and tell me:
 
-  1. 您打算购买哪个域名
-  2. 希望购买的价格（美元）
+  1. which domain you want to buy?
+  2. price with US Dollar $
 
  [1]: mailto:peer.playful0y@icloud.com

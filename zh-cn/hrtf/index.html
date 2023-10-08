@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>HRTF 3D 音效简明算法 - 图林根の烤肠</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="HRTF 3D 音效简明算法" />
+<meta property="og:description" content="尊重原创，请勿转载! 作者：图林根の烤肠 最近毕设的UI设计已经大体上完工，在圣诞之际开始了音频的HRTF合成，由于这方面的相关资料不是非常全面" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="thueringerbratwurst.com/zh-cn/hrtf/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-12-28T15:50:18+00:00" />
+<meta property="article:modified_time" content="2015-12-28T15:50:18+00:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HRTF 3D 音效简明算法"/>
+<meta name="twitter:description" content="尊重原创，请勿转载! 作者：图林根の烤肠 最近毕设的UI设计已经大体上完工，在圣诞之际开始了音频的HRTF合成，由于这方面的相关资料不是非常全面"/>
+<meta name="application-name" content="图林根の烤肠">
+<meta name="apple-mobile-web-app-title" content="图林根の烤肠"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="thueringerbratwurst.com/zh-cn/hrtf/" /><link rel="prev" href="thueringerbratwurst.com/zh-cn/minimum_phase_filters/" /><link rel="next" href="thueringerbratwurst.com/zh-cn/hrtf_matlab/" /><link rel="stylesheet" href="/thueringerbratwurst.com/css/style.min.css"><link rel="preload" href="/thueringerbratwurst.com/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/thueringerbratwurst.com/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/thueringerbratwurst.com/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/thueringerbratwurst.com/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "HRTF 3D 音效简明算法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "thueringerbratwurst.com\/zh-cn\/hrtf\/"
+        },"image": ["\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "3D音频, BRIR, HRIR, HRTF, 空间音频","wordcount":  3113 ,
+        "url": "thueringerbratwurst.com\/zh-cn\/hrtf\/","datePublished": "2015-12-28T15:50:18+00:00","dateModified": "2015-12-28T15:50:18+00:00","license": "2023Ⓒ版权所有，未经过作者许可，不得转载。","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "\/images\/avatar.jpg"},"author": {
+                "@type": "Person",
+                "name": "图林根の烤肠"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="thueringerbratwurst.com/zh-cn/" title="图林根の烤肠"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>图林根の烤肠</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/app/" title="app"> App </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/mt/"> 媒体技术 </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/asues" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="thueringerbratwurst.com/zh-cn/hrtf/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="thueringerbratwurst.com/zh-cn/" title="图林根の烤肠"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>图林根の烤肠</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/app/" title="app">App</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/mt/" title="">媒体技术</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/asues" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="thueringerbratwurst.com/zh-cn/hrtf/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HRTF 3D 音效简明算法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://www.thueringerbratwurst.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>图林根の烤肠</a></span>&nbsp;<span class="post-category">收录于 <a href="thueringerbratwurst.com/zh-cn/categories/mt/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>mt</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2015-12-28">2015-12-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3113 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#hrtf-介绍">HRTF 介绍</a></li>
+    <li><a href="#合成方法">合成方法</a>
+      <ul>
+        <li><a href="#1-确定音频的播放位置">1. 确定音频的播放位置:</a></li>
+        <li><a href="#2-分割音频为-n-份">2. 分割音频为 N 份</a></li>
+        <li><a href="#3-为每段信号进行卷积">3. 为每段信号进行卷积</a></li>
+        <li><a href="#5-合并每一段代码后合成最后的声音">5. 合并每一段代码后合成最后的声音</a></li>
+        <li><a href="#4-优化处理">4. 优化处理</a>
+          <ul>
+            <li><a href="#41-利用窗函数来实现淡入淡出效果">4.1 利用窗函数来实现淡入淡出效果</a></li>
+            <li><a href="#42-片段分解">4.2 片段分解：</a></li>
+            <li><a href="#43-合并淡入与淡出">4.3 合并淡入与淡出</a></li>
+            <li><a href="#44-片段合并">4.4 片段合并</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="尊重原创请勿转载">尊重原创，请勿转载!</h1>
+<p>作者：<a href="https://www.thueringerbratwurst.com" target="_blank" rel="noopener noreffer ">图林根の烤肠</a></p>
+<p>最近毕设的UI设计已经大体上完工，在圣诞之际开始了音频的HRTF合成，由于这方面的相关资料不是非常全面，导师在过完一年一度的旅游假期后外加生病一星期（俺就就当做是真生病了）反而又到了圣诞长假，年前连半个个人影也找不到。同学Oli说过一句挺搞笑的话，<del>科学家们经常把本来很普通的事情故意说得晦涩难懂，以证明自己非常牛叉</del>。虽然导师给指点了一下，然而在看了很多资料后我仍是一头雾水，仍然没搞懂如何合成具体的 3D 音效，然而在读完 Mr. Li 论文中的代码后对 HRTF 的音频合成有了大致的了解，特此总结下相关知识，以减轻学弟学妹们为找不到资料发愁而带来的痛苦。</p>
+<p>PS:本文特此感谢下 Mr.Li 的鼎力技术支持，至于说 Mr. Li 是谁? 我也不知道，那可是法兰火车站红灯区附近的名人~（偷笑）</p>
+<p>这里给学校免费做个广告，欢迎各位同学来德国就读 <a href="https://www.tu-ilmenau.de/international/" target="_blank" rel="noopener noreffer ">伊尔梅瑙工业大学</a> 的 <code>媒体技术</code> 专业，虽然这个学校总体不算出名，但是媒体技术这个专业在德国始终是前三名。 因为这边都是学分制，课程都是自选，如果不具有德语水平，除了个别课程没法用德语完成，英语也是没问题的～～～这个城市位于德国中部图林根州，风景秀礼，城市虽然很小，但是十分适合学习研究。如果你对音频领域感兴趣，这个方向的 <code>IEEE Fellow</code>, <code>Mp3</code> 之父 <a href="https://de.wikipedia.org/wiki/Karlheinz_Brandenburg" target="_blank" rel="noopener noreffer ">Brandenburg 教授</a>，正是当年带领团队开发出举世著名mp3 格式的团队，紧邻学校还坐落着德国 <a href="https://baike.baidu.com/item/Fraunhofer-Gesellschaft/1088223" target="_blank" rel="noopener noreffer ">弗劳恩霍夫应用研究促进协会</a> 的数字多媒体研究院，正是全德国研究媒体技术的前沿专业机构。</p>
+<p>闲话不扯了，正文开始。</p>
+<hr>
+<h2 id="hrtf-介绍">HRTF 介绍</h2>
+<p>如果看到此文，表明您已经对<code>HRTF(head-related transfer function)</code>有一定的了解，随着这几年 VR 技术的不断发展，3D 音频的应用范围也得到了进一步的扩展，包括最近苹果 Air Pod 使用的虚拟空间音频，也是使用了类似的技术。通俗来讲，HRTF 数据库对应的频域范围的信号，与之对应的则为<code>HRIR(head-related impulse response)</code>, 这里主要说明的是时域范围，通过 HRIR 与音频信号进行卷积来实现 3D 音效。当然，实现 3D 音效的数据库不止 HRIR，据导师说明，音效模拟的效果依次为： BRIR &gt; HRIR &gt; Stereo ，这里的<code>BRIR</code>的是<code>binaural room impulse response)</code>, 相对HRIR 来说 BRIR 具有更多的空间信息（资料待考证) 。目前互联网上容易寻找的HRTF数据库是 <a href="http://interface.cipic.ucdavis.edu/sound/hrtf.html" target="_blank" rel="noopener noreffer ">CIPIC HRTF DATABASE(链接已失效)</a>，相关内容我会在下一篇文章中阐述。</p>
+<h2 id="合成方法">合成方法</h2>
+<p>首先来说下实现3D模拟的算法，明白之后看代码就会容易许多。</p>
+<h3 id="1-确定音频的播放位置">1. 确定音频的播放位置:</h3>
+<p>我们知道，通过一段音频与对应的空间位置（azimuth和 elevation 角度）的 HRIR 数据进行卷积即可产生一段位于该点的空间音频。首先来做的是输入的音频在空间上需要分割为多少个点。这里如图所示（稍微将就下，个人手画水平实在不敢恭维），在头部的平面上（这里简化成 2D 平面，容易理解其算法），假如我们想要在 0°，60°，120°， 180°，300° 和 330° 这六个点合成信号。</p>
+<figure><img src="koordinatesystem.png"/><figcaption>
+            <h4>Azimuth 水平角，12点方向为0度</h4>
+        </figcaption>
+</figure>
+
+<h3 id="2-分割音频为-n-份">2. 分割音频为 N 份</h3>
+<p>每个点的音频时间可以均分或者不等分，均分的话容易计算，因为之前已经定义了6个点，所以这里把音频分为6等分。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl">每段音频的长度 <span class="p">=</span> 输入音频的总长度 <span class="o">/</span> 需要在空间上生成的位置个数。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>假设音频长度为<code>264600</code>个采样点，采样率为<code>44100</code>的<code>6秒</code>片段，那么每段长度为 <code>264600/6 = 44100</code> ，则每段音频长<code>1秒</code>。</p>
+<h3 id="3-为每段信号进行卷积">3. 为每段信号进行卷积</h3>
+<p>接下来就需要对每一段的音频信号跟相对应空间位置的HRIR函数卷积。这里的算法为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl">片段<span class="mi">1</span> <span class="p">=</span> 音频段<span class="mi">1</span> <span class="o">*</span> <span class="n">HRIR_0</span>°
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">片段<span class="mi">2</span> <span class="p">=</span> 音频段<span class="mi">2</span> <span class="o">*</span> <span class="n">HRIR_60</span>°
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">片段<span class="mi">3</span> <span class="p">=</span> 音频段<span class="mi">3</span> <span class="o">*</span> <span class="n">HRIR_120</span>°
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">片段<span class="mi">4</span> <span class="p">=</span> 音频段<span class="mi">4</span> <span class="o">*</span> <span class="n">HRIR_180</span>°
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">片段<span class="mi">5</span> <span class="p">=</span> 音频段<span class="mi">5</span> <span class="o">*</span> <span class="n">HRIR_300</span>°
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">片段<span class="mi">6</span> <span class="p">=</span> 音频段<span class="mi">6</span> <span class="o">*</span> <span class="n">HRIR_330</span>°
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5-合并每一段代码后合成最后的声音">5. 合并每一段代码后合成最后的声音</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl">输出 <span class="p">=</span> 片段<span class="mi">1</span> <span class="o">+</span> 片段<span class="mi">2</span> <span class="o">+</span>片段<span class="mi">3</span> <span class="o">+</span>片段<span class="mi">4</span> <span class="o">+</span>片段<span class="mi">5</span> <span class="o">+</span>片段<span class="mi">6</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里的加法在 Matlab 上面为数组的合并，并不是每一项的数学相加，而是： <code>输出 = [片段1  片段2  片段3  片段4  片段5  片段6 ]</code></p>
+<h3 id="4-优化处理">4. 优化处理</h3>
+<p>细心的读者会发现上面的步骤是5而不是4，因为我们还需要在步骤5之前做接一些额外工作。</p>
+<p>如果你按照1-5的步骤走下来后就会发现，如果只用四个步骤合成实际效果并不理想，因为我们总能在每一段的音频的衔接处听到断点，导致音频不连贯。我的做法是在每一段的开头和结尾加上淡入淡出的效果，即为每两段音频的连接处正常化处理。算法为：</p>
+<h4 id="41-利用窗函数来实现淡入淡出效果">4.1 利用窗函数来实现淡入淡出效果</h4>
+<figure><img src="hann.jpg"/><figcaption>
+            <h4>汉宁窗函数</h4>
+        </figcaption>
+</figure>
+
+<p>这里用一个汉宁窗来实现淡入淡出，淡入取汉宁窗的前半段，淡出取后半段，这里的窗函数长度是自订的，<code>窗函数长度 = 淡入长度 + 淡出长度</code>。为了方便前后淡入淡出长度相等即可。及<code>窗函数长度 = 2 * 淡入长度 = 2 * 淡出长度 = 淡入长度 + 淡出长度</code>。如果想要淡入效果，即可使用汉宁窗的前半部乘以需要淡入的音频片段即可，就保证音频的平滑淡入过渡，淡出效果使用汉宁窗对后半部即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl">淡入 <span class="p">=</span> 音频的淡入部分 <span class="o">*</span> 淡入窗函数（窗函数前半段）
+</span></span><span class="line"><span class="cl">淡出 <span class="p">=</span> 音频的淡出部分 <span class="o">*</span> 淡出窗函数（窗函数的后半段）
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果最后生成的音频仍有不连贯问题，可采用更改窗函数长度的方法反复试听，一般即可解决问题。</p>
+<h4 id="42-片段分解">4.2 片段分解：</h4>
+<p>首先来看图片，因为图片理解起来比文字要具体不少：</p>
+<p>我们需把每段的音频分为：<code>淡入``中间音频``淡出</code> 三部分：
+<figure><img src="segment3.jpg"/>
+</figure>
+</p>
+<p>其中要注意的是：对于整个音频文件，添加淡入淡出效果的时候第一段音频不需要淡入音频，而最后一段音频不需要淡出，可以当做特例来进行处理。</p>
+<h4 id="43-合并淡入与淡出">4.3 合并淡入与淡出</h4>
+<p>把每一段音频进行淡入淡出处理后，我们就可以把每一段的音频合并起来了。这里拿<code>片段2</code>和<code>片段3</code>合成举例。因为片段2的音频结尾进行了淡出，为了保持连贯，需要把<code>片段2的结尾</code>与<code>片段3的开头</code>合并，即 <strong>红色部分和黄色部分重叠相加</strong>，才能实现连贯效果。</p>
+<p>这里需要注意的一点是，不直接把<code>片段1的淡出结尾</code>直接与<code>片段2淡入开头</code>合并，因为这样会听到片段1点淡出效果，而片段2开头却听到了淡入效果。直接让<code>片段1的淡出结尾</code>与<code>片段2淡入开头</code>合并，可以形成更加自然的过渡效果。虽然这里我表达的有些绕口，那么看下面图片即可明白这里的意思：
+<figure><img src="segment_strich.png"/>
+</figure>
+</p>
+<p>最后实现的效果是：在片段的末尾加上了淡入和淡出合并的效果，在片段的开头也加上了相应的效果。
+上面的图片可以用接下的文字更加详细得解释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl">优化后的片段<span class="mi">1</span>’ <span class="p">=</span> 片段<span class="mi">1</span>不需要淡入的部分 <span class="o">+</span> 片段<span class="mi">1</span>淡出与片段<span class="mi">2</span>的淡入叠加的尾部（灰色）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">优化后的片段<span class="mi">2</span>‘ <span class="p">=</span> 片段<span class="mi">2</span>开头窗数据剔除掉的部分（空值） <span class="o">+</span> 片段<span class="mi">2</span>中间段 <span class="o">+</span>片段<span class="mi">2</span>淡出与片段<span class="mi">3</span>淡入叠加部分
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl">优化后的片段<span class="mi">6</span>’ <span class="p">=</span> 片段<span class="mi">6</span>开头窗数据剔除掉的部分（空值） <span class="o">+</span> 片段<span class="mi">6</span>剩余部分
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里抛开片段1，剩余的片段2到片段6长度均减少了窗函数长度的一半，少去的部分即为淡入（淡出）的长度，这里再举个实际的例子：</p>
+<p>片段2原来长度 : 44100， 淡入淡出长度各为：256， 则可以推出：优化后的片段2’长度为：<code>44100 - 256 = 43844</code>，中间的部分长度为 <code>44100 - 256 - 256 = 43588</code>。还有一点需要注意的是，<code>优化后的片段2’ = 片段2 [256+1: 43588]</code> 即从原始片段2的第256个值开始到43588的值。</p>
+<h4 id="44-片段合并">4.4 片段合并</h4>
+<p>再优化完每一片段后，最后一步就是把所有的片段合并即可，合并后的结果如图所示：
+<figure><img src="segment6.png"/><figcaption>
+            <h4>片段合成</h4>
+        </figcaption>
+</figure>
+</p>
+<h2 id="总结">总结</h2>
+<p>以上就是HRIR函数的具体算法，详细实现代码可以浏览我的 <a href="https://github.com/Asues/Matlab" target="_blank" rel="noopener noreffer ">Github</a>，当然我也会在我的 <a href="../hrtf_matlab/" rel="">另一篇</a> 文章中补充代码的说明。</p>
+<hr>
+<p>最后的合并结果虽然少了5段淡入的音频 ，即<code>256 * 5 = 1280</code>个采样点，但是听起来更加平滑，其实如果整体的音频总是需要在一个点模拟，例如60度角度，那么完全没有必要进行片段合并，而是用整个音频文件卷积对应的空间位置的 HRIR 数据即可。这个片段淡入淡出效果的作用仅仅是为了让音频在空间位置转化的时候听起来不会出现明显的断层而使用。
+当然了，如果您发现了更好的优化算法，也欢迎推荐给我，让我们一起讨论。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2015-12-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="thueringerbratwurst.com/zh-cn/hrtf/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="thueringerbratwurst.com/zh-cn/hrtf/" data-title="HRTF 3D 音效简明算法" data-hashtags="3D音频,BRIR,HRIR,HRTF,空间音频"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="thueringerbratwurst.com/zh-cn/hrtf/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="thueringerbratwurst.com/zh-cn/hrtf/" data-title="HRTF 3D 音效简明算法" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Pinterest" data-sharer="pinterest" data-url="thueringerbratwurst.com/zh-cn/hrtf/"><i class="fab fa-pinterest fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="thueringerbratwurst.com/zh-cn/hrtf/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="thueringerbratwurst.com/zh-cn/hrtf/" data-title="HRTF 3D 音效简明算法"><i data-svg-src="/thueringerbratwurst.com/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="thueringerbratwurst.com/zh-cn/hrtf/" data-title="HRTF 3D 音效简明算法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="thueringerbratwurst.com/zh-cn/hrtf/" data-title="HRTF 3D 音效简明算法"><i data-svg-src="/thueringerbratwurst.com/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="thueringerbratwurst.com/zh-cn/hrtf/" data-title="HRTF 3D 音效简明算法"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/3d%E9%9F%B3%E9%A2%91/">3D音频</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/brir/">BRIR</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/hrir/">HRIR</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/hrtf/">HRTF</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/%E7%A9%BA%E9%97%B4%E9%9F%B3%E9%A2%91/">空间音频</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="thueringerbratwurst.com/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="thueringerbratwurst.com/zh-cn/minimum_phase_filters/" class="prev" rel="prev" title="Minimum Phase Filters 最小相位滤波器简易"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Minimum Phase Filters 最小相位滤波器简易</a>
+            <a href="thueringerbratwurst.com/zh-cn/hrtf_matlab/" class="next" rel="next" title="HRTF 3D 音效 Matlab实现">HRTF 3D 音效 Matlab实现<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2015 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://www.thueringerbratwurst.com" target="_blank">图林根の烤肠</a></span>&nbsp;|&nbsp;<span class="license">All Rights Reserved</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/thueringerbratwurst.com/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://tu-lin-gen-nokao-chang.disqus.com/embed.js" defer></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"O4QGQ2BYHU","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a55503eed9917ab7b930644243c241fe","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/thueringerbratwurst.com/js/theme.min.js"></script></body>
+</html>

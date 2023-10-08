@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Piano LED for Arduino – 苹果版特效钢琴 - 图林根の烤肠</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Piano LED for Arduino – 苹果版特效钢琴" />
+<meta property="og:description" content="介绍 Piano LED for Arduino (以下简称PLA) 是一个完全免费、轻量级无广告的 MacOS 程序，它可以解析电钢琴发送的 MIDI 文件，从而发送控制指令到 Arduino， 从而让您" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="thueringerbratwurst.com/zh-cn/pla/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-05T21:06:07+00:00" />
+<meta property="article:modified_time" content="2021-11-05T21:06:07+00:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Piano LED for Arduino – 苹果版特效钢琴"/>
+<meta name="twitter:description" content="介绍 Piano LED for Arduino (以下简称PLA) 是一个完全免费、轻量级无广告的 MacOS 程序，它可以解析电钢琴发送的 MIDI 文件，从而发送控制指令到 Arduino， 从而让您"/>
+<meta name="application-name" content="图林根の烤肠">
+<meta name="apple-mobile-web-app-title" content="图林根の烤肠"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="thueringerbratwurst.com/zh-cn/pla/" /><link rel="prev" href="thueringerbratwurst.com/zh-cn/freed/" /><link rel="next" href="thueringerbratwurst.com/zh-cn/watermark/" /><link rel="stylesheet" href="/thueringerbratwurst.com/css/style.min.css"><link rel="preload" href="/thueringerbratwurst.com/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/thueringerbratwurst.com/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/thueringerbratwurst.com/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/thueringerbratwurst.com/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Piano LED for Arduino – 苹果版特效钢琴",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "thueringerbratwurst.com\/zh-cn\/pla\/"
+        },"image": ["\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "特效钢琴, Arduino, LED, MacOS, MIDI, Piano, WS2812, WS2812B","wordcount":  1089 ,
+        "url": "thueringerbratwurst.com\/zh-cn\/pla\/","datePublished": "2021-11-05T21:06:07+00:00","dateModified": "2021-11-05T21:06:07+00:00","license": "2023Ⓒ版权所有，未经过作者许可，不得转载。","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "\/images\/avatar.jpg"},"author": {
+                "@type": "Person",
+                "name": "图林根の烤肠"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="thueringerbratwurst.com/zh-cn/" title="图林根の烤肠"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>图林根の烤肠</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/app/" title="app"> App </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/mt/"> 媒体技术 </a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/asues" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="thueringerbratwurst.com/zh-cn/pla/" selected>简体中文</option><option value="thueringerbratwurst.com/pla/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="thueringerbratwurst.com/zh-cn/" title="图林根の烤肠"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>图林根の烤肠</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/app/" title="app">App</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/categories/mt/" title="">媒体技术</a><a class="menu-item" href="/thueringerbratwurst.com/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/asues" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="thueringerbratwurst.com/zh-cn/pla/" selected>简体中文</option><option value="thueringerbratwurst.com/pla/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Piano LED for Arduino – 苹果版特效钢琴</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://www.thueringerbratwurst.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>图林根の烤肠</a></span>&nbsp;<span class="post-category">收录于 <a href="thueringerbratwurst.com/zh-cn/categories/app/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>app</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-11-05">2021-11-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1089 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#下载地址">下载地址</a></li>
+    <li><a href="#效果视频">效果视频</a></li>
+    <li><a href="#原理数据流">原理（数据流）</a></li>
+    <li><a href="#硬件需求">硬件需求</a></li>
+    <li><a href="#准备工作">准备工作</a></li>
+    <li><a href="#快速开始">快速开始</a></li>
+    <li><a href="#关于消息传送">关于消息传送</a></li>
+    <li><a href="#音符状态">音符状态</a></li>
+    <li><a href="#音符名称">音符名称</a></li>
+    <li><a href="#举例">举例</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p style="text-align:center;"><img loading="lazy" src="logo.png" alt="" width="256" height="256"/> </p>
+<h1 id="介绍">介绍</h1>
+<p>Piano LED for Arduino (以下简称PLA) 是一个完全免费、轻量级无广告的 MacOS 程序，它可以解析电钢琴发送的 MIDI 文件，从而发送控制指令到 Arduino， 从而让您实现通过电钢琴控制 LED 灯带的目的。</p>
+<h2 id="下载地址">下载地址</h2>
+<p>Piano LED for Arduino v1.0:</p>
+<p><a href="https://pan.baidu.com/share/init?surl=4Lipn31sR3z0Pp9Jt9HU3A" target="_blank" rel="noopener noreffer ">百度网盘（提取码 ilpn）</a></p>
+<p><a href="https://drive.google.com/file/d/1BcECvxdBHfR2Y0WgC1VY_5yRrhZZ0OAX/view?usp=sharing" target="_blank" rel="noopener noreffer ">Google Drive</a></p>
+<p><a href="https://mega.nz/file/LHBDnIKa#Pr-MxP1Z7d9Q6Bov0dXnC5QXqigoT0Y1XQUhZjIgNy4" target="_blank" rel="noopener noreffer ">Mega Upload</a></p>
+<h2 id="效果视频">效果视频</h2>
+<p><div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1hY411x7mJ&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/UoEaF0MRrjE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/SiLaIkchdn4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<blockquote>
+<p>详细配置教程可参考下文，我已尽可能使用通俗易懂的文字进行说明，但是如果您对硬件或是编程知识实在没有了解，无法独立完成，可以给我邮件寻求帮助，当然我会收取您额外费用为我的个人劳务所得，因为时差或是工作原因，如不能及时回复请见谅 😄</p>
+</blockquote>
+<blockquote>
+<p>请不要长时间凝视 LED，强光会对您的眼睛造成不可逆回的损害！</p>
+</blockquote>
+<h2 id="原理数据流">原理（数据流）</h2>
+<figure><img src="PLA_Prinzip.png"/><figcaption>
+            <h4>原理</h4>
+        </figcaption>
+</figure>
+
+<h2 id="硬件需求">硬件需求</h2>
+<ol>
+<li>Arduino Uno</li>
+<li>长于1米4的 WS2812B 灯带 (144 灯珠/米)</li>
+<li>330 欧电阻 （可选）</li>
+<li>三根根杜邦线，最好带不同颜色便于区分</li>
+<li>两根 USB 线缆（接口 type B）用于 Arduino 和 电钢琴连接您的 Mac （无线连接有非常明显的延迟）</li>
+<li>MacOS 系统高于 Big Sur (MacOS 11.0)</li>
+<li>一个电钢琴或是 MIDI 键盘</li>
+</ol>
+<h2 id="准备工作">准备工作</h2>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1nL4y1v7P5&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<ol>
+<li>
+<p>还原电钢琴为出厂设置，打开 MIDI 传输功能</p>
+</li>
+<li>
+<p>打开电钢电源后通过 USB 连接您的电脑</p>
+</li>
+<li>
+<p>按照图示，连接 LED 灯带，通常来说，灯带红色需要 5V 电压输入，白色为接地，绿色为控制信号接口，连接到 Arduino 的 9 号针脚。具体链接方法请参照 LED 等待说明为准。
+<figure><img src="PLA_LED.png"/><figcaption>
+            <h4>红色为 5V 电压，绿色连接 330 欧姆后连接 9号针脚，白色接地</h4>
+        </figcaption>
+</figure>
+</p>
+</li>
+<li>
+<p>安装 <code>Arduino IDE for Mac</code> ，然后打开软件后下载 Arduino 代码，代码可以通过点击 <code>File -&gt; Save Arduino Sketch to Disk</code> 下载
+<figure><img src="saveSketch.png"/><figcaption>
+            <h4>Save sketch to your mac</h4>
+        </figcaption>
+</figure>
+</p>
+</li>
+<li>
+<p>在 Arduino IED 中安装 FastLED 库</p>
+</li>
+<li>
+<p>上传刚才下载的代码到 Arduino</p>
+</li>
+<li>
+<p>在打开电钢电源之后启动 PLA，如果已经启动了 PLA，请完全关闭后在开启电钢电源。因为 PLA 只有在软件启动的时候去寻找您的电钢</p>
+</li>
+<li>
+<p>打开 PLA，开始弹奏</p>
+</li>
+</ol>
+<h2 id="快速开始">快速开始</h2>
+<p><figure><img src="t1.png"/>
+</figure>
+
+<figure><img src="t2.png"/>
+</figure>
+
+<figure><img src="t3.png"/>
+</figure>
+</p>
+<blockquote>
+<p>上传 Arduino 代码仅需要执行一次，在随后的演奏中您只需要连接 Arduino 即可</p>
+</blockquote>
+<ol>
+<li>连接 Arduino （这里假设您已经完成代码上传），连接电钢琴并打开电钢的电源</li>
+<li>启动 PLA 之后通过左右按钮选择 Arduino 的端口 <code>usbmodem14201</code> ，端口也许会不同，这里显示的名称应对应 Arduino 在您 Mac 中显示的一致
+<figure><img src="PLA_Start.png"/><figcaption>
+            <h4>图片中间显示的目前将要连接的端口，通过左右按钮选择 Arduino 的端口后，点击右侧开始按钮即可连接 Arduino</h4>
+        </figcaption>
+</figure>
+</li>
+<li>点击右侧的电源按钮即可开始连接.</li>
+<li>当您看到 LED 灯带从左往右依次闪过的时候，表明连接正常 😄</li>
+</ol>
+<blockquote>
+<p>测试环境为 Arduino Uno, MacBook Pro 16 (2019), Roland FP-90.</p>
+</blockquote>
+<h2 id="关于消息传送">关于消息传送</h2>
+<p>传送到 Arduino 的消息一共有一字节，它包含了音符的状态和音符名称。其中第一比特表示了音符状态，其余七比特表示了音符名称</p>
+<h2 id="音符状态">音符状态</h2>
+<p>如果第一比特为 1， 表示该音符已经按下，十进制中表示该数值加 128</p>
+<h2 id="音符名称">音符名称</h2>
+<p>电钢琴一共有 88 个按键，因此音符抬起的时候，发送的范围就是 [21~108] = [0x15~0x6c] = 0b[0001 0101 ~ 0110 1100]。同理音符按下需要递加 128</p>
+<h2 id="举例">举例</h2>
+<p>如果 A0 （钢琴最左侧按键）抬起时，PLA 会发送 21(0x15) 到 Arduino，当按键按下时 PLA 会发送 149(21+128)</p>
+<p>如果 C8（钢琴最右侧按键）抬起时，PLA 会发送 108(0x6C) 到 Arduino，当按键按下时 PLA 会发送 236(108+128)</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-11-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="thueringerbratwurst.com/zh-cn/pla/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="thueringerbratwurst.com/zh-cn/pla/" data-title="Piano LED for Arduino – 苹果版特效钢琴" data-hashtags="特效钢琴,Arduino,LED,MacOS,MIDI,Piano,WS2812,WS2812B"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="thueringerbratwurst.com/zh-cn/pla/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="thueringerbratwurst.com/zh-cn/pla/" data-title="Piano LED for Arduino – 苹果版特效钢琴" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Pinterest" data-sharer="pinterest" data-url="thueringerbratwurst.com/zh-cn/pla/"><i class="fab fa-pinterest fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="thueringerbratwurst.com/zh-cn/pla/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="thueringerbratwurst.com/zh-cn/pla/" data-title="Piano LED for Arduino – 苹果版特效钢琴"><i data-svg-src="/thueringerbratwurst.com/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="thueringerbratwurst.com/zh-cn/pla/" data-title="Piano LED for Arduino – 苹果版特效钢琴"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="thueringerbratwurst.com/zh-cn/pla/" data-title="Piano LED for Arduino – 苹果版特效钢琴"><i data-svg-src="/thueringerbratwurst.com/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="thueringerbratwurst.com/zh-cn/pla/" data-title="Piano LED for Arduino – 苹果版特效钢琴"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/%E7%89%B9%E6%95%88%E9%92%A2%E7%90%B4/">特效钢琴</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/arduino/">Arduino</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/led/">LED</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/macos/">MacOS</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/midi/">MIDI</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/piano/">Piano</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/ws2812/">WS2812</a>,&nbsp;<a href="thueringerbratwurst.com/zh-cn/tags/ws2812b/">WS2812B</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="thueringerbratwurst.com/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="thueringerbratwurst.com/zh-cn/freed/" class="prev" rel="prev" title="简述虚拟演播室中的 free-d 摄像机同步协议"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>简述虚拟演播室中的 free-d 摄像机同步协议</a>
+            <a href="thueringerbratwurst.com/zh-cn/watermark/" class="next" rel="next" title="捷径 – 烤肠水印 - 徕卡水印">捷径 – 烤肠水印 - 徕卡水印<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2015 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://www.thueringerbratwurst.com" target="_blank">图林根の烤肠</a></span>&nbsp;|&nbsp;<span class="license">All Rights Reserved</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/thueringerbratwurst.com/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://tu-lin-gen-nokao-chang.disqus.com/embed.js" defer></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/thueringerbratwurst.com/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"O4QGQ2BYHU","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a55503eed9917ab7b930644243c241fe","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/thueringerbratwurst.com/js/theme.min.js"></script></body>
+</html>

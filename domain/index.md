@@ -1,7 +1,9 @@
-# 该域名出售中
+# This domain is for sale
 
 
-# 该域名出售中
-如果您打算购买次域名，请 [邮件](mailto:gallops-pane-06@icloud.com) 联系我，并请在邮件中注明：
-1. 您打算购买什么域名
-2. 您的出价是多少（美元）
+# This domain is for sale
+
+If you are interested in purchasing this domain, please contact me by [email](mailto:gallops-pane-06@icloud.com)  with the following message:
+
+1. What domain name you intend to buy
+2. What is your bid (in USD$)

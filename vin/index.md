@@ -1,28 +1,36 @@
-# 平行进口车助手
+# VIN Checker
 
 <p style="text-align:center;"><img loading="lazy" src="logo.png" alt="" width="256" height="256"/> </p>
 
->虽然该软件能够判断绝大多数车型是否符合进口规范，但是依然不能保证100%正确。具体详情请联系国内进口代理货运公司或汽车官网查询，造成的一切损失不承担任何法律责任！
+>If you want to leave a message, please use English, German or Chinese
 
-# 下载
-[苹果商店下载](https://apps.apple.com/cn/app/平行进口车助手/id1182796068)
+# Download
+[App Store](https://apps.apple.com/us/app/%E5%B9%B3%E8%A1%8C%E8%BF%9B%E5%8F%A3%E8%BD%A6%E5%8A%A9%E6%89%8B/id1182796068)
 
-# 介绍
-本软件采用最新算法，主要面向海内外进口车经销商及个人海外购车用户而开发。该应用采用大量一手车辆报关信息，可以快速查询进口车辆是否符合中国国家车架号（VIN 码）进口标准，节省您宝贵的时间。至于说为什么软件需要收费，主要原因是 **时间无价**，我相信对于做平行车贸易的朋友来说，动辄几十万上百万的进口车业务，这 100 块钱也许连半顿饭钱都不到，却能省去很多的时间。
+# Description
+If you intend to export cars to China, this application is your best helper. This application can quickly verify the vehicle identification code and tells you whether your car can be exported to China. It may save you a lot of time to contact with Chinese customers.
 
-# 特性
-1. 使用方便，直接输入17位车架号即可直接获知寻获的车辆是否可以顺利报关。  
-2. 完全本地化算法，保证了您的车架号信息不会上传（您可以自行选择是否上传搜索记录到iCloud进行同步，包括苹果也无法访问您上传的同步文件），可以有效的保护您的经销商车型信息。
+# Features:
+1. Fast and convenient, fully localized operation.  
+2. All data will not be uploaded，that will protect your car supplier and your secret.
 
-如果您有更好的意见或者报告软件 bug，欢迎按照下面的地址发邮件留言。我将尽快为您答复。
+*Verification of the results is only for reference, resulting in all losses do not bear any legal responsibility*.
 
-# 使用
-## 1. 查询
-输入17位车架号即可，点击 “查询” 按钮，不论结果正确，都会出现类似车架号是否符合规范的相关提示。
-## 2. 车架号模拟
-## 3. 历史记录：
-如果您之前使用过软件的查询功能，那么在最新的版本中会自动保存查询记录。如果当查询的车型如果与数据库中的车型匹配时，查询记录会自动包含相关车型的车标，方便一目了然的查看结果。
-## 4. 成本计算器
-输入基本的采购价格，即可根据车型自动计算出购车成本，可以让您快速为您的销售做出定价。
+# Requirements:
 
+iOS 9.0+
 
+# Usage:
+
+In the `Verification` page you should input your 17-digits and letters of the vehicle identification number.
+
+Please pay attention to the number of remaining queries, when the number of queries less than 1, the software can not get any information.
+
+# Notice:
+
+VIN is the most important condition, but is **<span style="color: #ff0000;">not the only rule</span>** that can import a car to China. Such as steering wheel position (Britisch car), color of brake light (American car) and other conditions. But the European car is not described in front of the problem. Some diesel cars will have also problems, because those cars can not drive in some cities (like Beijing, Shanghai). You still need to ask your customer whether they want to buy a diesel car.
+
+# Others:
+If you have any other questions, please contact me through the contact information in the app.
+
+Thank you
