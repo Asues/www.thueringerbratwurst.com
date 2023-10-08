@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>WS2812 - Tag - 图林根の烤肠</title>
+        <link>http://thueringerbratwurst.com/en/tags/ws2812/</link>
+        <description>WS2812 - Tag - 图林根の烤肠</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023ⒸAll Rights Reserved</copyright><lastBuildDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</lastBuildDate><atom:link href="http://thueringerbratwurst.com/en/tags/ws2812/" rel="self" type="application/rss+xml" /><item>
+    <title>MacOS - Piano LED for Arduino (Piano Visualizer)</title>
+    <link>http://thueringerbratwurst.com/en/pla/</link>
+    <pubDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>http://thueringerbratwurst.com/en/pla/</guid>
+    <description><![CDATA[Descrpition Piano LED for Arduino (PLA) is a piano visualizer, it is free, lightweight, without Ad. application that allows you to controll LED-Strips during you playing digital piano (you still need an Arduino board, like UNO). It is able to receive MIDI message from your digital piano and transmit the MIDI data to Arduino, so that Arduino is able to control LEDs with the MIDI-Streaming.
+Download Links Piano LED for Arduino v1.]]></description>
+</item>
+</channel>
+</rss>
