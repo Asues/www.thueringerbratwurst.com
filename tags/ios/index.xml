@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>iOS - Tag - 图林根の烤肠</title>
-        <link>thueringerbratwurst.com/tags/ios/</link>
+        <link>https://www.thueringerbratwurst.co/tags/ios/</link>
         <description>iOS - Tag - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023ⒸAll Rights Reserved</copyright><lastBuildDate>Wed, 27 Jul 2022 19:47:31 &#43;0000</lastBuildDate><atom:link href="thueringerbratwurst.com/tags/ios/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023ⒸAll Rights Reserved</copyright><lastBuildDate>Wed, 27 Jul 2022 19:47:31 &#43;0000</lastBuildDate><atom:link href="https://www.thueringerbratwurst.co/tags/ios/" rel="self" type="application/rss+xml" /><item>
     <title>Shortcut - MH Watermark</title>
-    <link>thueringerbratwurst.com/watermark/</link>
+    <link>https://www.thueringerbratwurst.co/watermark/</link>
     <pubDate>Wed, 27 Jul 2022 19:47:31 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>thueringerbratwurst.com/watermark/</guid>
+    <guid>https://www.thueringerbratwurst.co/watermark/</guid>
     <description><![CDATA[Watermarked images with added image information MH Watermark This shortcut code that can be used directly without downloading any app and support iPhone, iPad and Mac.
 Features Support to add the logo watermark of major camera manufacturers: Hasselblad, Leica, Sony, Nikon, Canon, Fujifilm, Panasonic etc. Displays shooting equipment and lens models based on picture information via EXIF. Fully customizable display of corresponding shooting parameters Automatically or manually add geographic locations Open source, it will not upload your pictures.]]></description>
 </item>

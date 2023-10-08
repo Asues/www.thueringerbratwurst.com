@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Virtual Studio - 标签 - 图林根の烤肠</title>
-        <link>thueringerbratwurst.com/zh-cn/tags/virtual-studio/</link>
+        <link>https://www.thueringerbratwurst.co/zh-cn/tags/virtual-studio/</link>
         <description>Virtual Studio - 标签 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sat, 03 Apr 2021 00:16:52 &#43;0000</lastBuildDate><atom:link href="thueringerbratwurst.com/zh-cn/tags/virtual-studio/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sat, 03 Apr 2021 00:16:52 &#43;0000</lastBuildDate><atom:link href="https://www.thueringerbratwurst.co/zh-cn/tags/virtual-studio/" rel="self" type="application/rss+xml" /><item>
     <title>简述虚拟演播室中的 free-d 摄像机同步协议</title>
-    <link>thueringerbratwurst.com/zh-cn/freed/</link>
+    <link>https://www.thueringerbratwurst.co/zh-cn/freed/</link>
     <pubDate>Sat, 03 Apr 2021 00:16:52 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>thueringerbratwurst.com/zh-cn/freed/</guid>
+    <guid>https://www.thueringerbratwurst.co/zh-cn/freed/</guid>
     <description><![CDATA[尊重原创，请勿转载! 作者：图林根の烤肠 前言 虚拟演播室（Virtual Studio，或者 Virtual Set）技术在上个世纪 80 年代就已经出现，它主要使用了]]></description>
 </item>
 </channel>

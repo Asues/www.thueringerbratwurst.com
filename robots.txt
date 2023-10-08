@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: zh-cn/sitemap.xml
+Sitemap: https://www.thueringerbratwurst.co/zh-cn/sitemap.xml

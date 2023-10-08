@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>VECTOR QUANTIZER LBG - 标签 - 图林根の烤肠</title>
-        <link>thueringerbratwurst.com/zh-cn/tags/vector-quantizer-lbg/</link>
+        <link>https://www.thueringerbratwurst.co/zh-cn/tags/vector-quantizer-lbg/</link>
         <description>VECTOR QUANTIZER LBG - 标签 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Fri, 21 Feb 2014 19:49:35 &#43;0000</lastBuildDate><atom:link href="thueringerbratwurst.com/zh-cn/tags/vector-quantizer-lbg/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Fri, 21 Feb 2014 19:49:35 &#43;0000</lastBuildDate><atom:link href="https://www.thueringerbratwurst.co/zh-cn/tags/vector-quantizer-lbg/" rel="self" type="application/rss+xml" /><item>
     <title>Vector Quantizer LBG 矢量量化简要实例算法</title>
-    <link>thueringerbratwurst.com/zh-cn/lbg/</link>
+    <link>https://www.thueringerbratwurst.co/zh-cn/lbg/</link>
     <pubDate>Fri, 21 Feb 2014 19:49:35 &#43;0000</pubDate>
     <author>图林根の烤肠</author>
-    <guid>thueringerbratwurst.com/zh-cn/lbg/</guid>
+    <guid>https://www.thueringerbratwurst.co/zh-cn/lbg/</guid>
     <description><![CDATA[Vector Quantizer LBG 矢量量化简要实例算法 尊重原创，请勿转载! 作者：图林根の烤肠 最近忙于考试复习 ADSP (数字信号处理) 中，查看了一些资料，大多写的十分繁琐，一点]]></description>
 </item>
 </channel>
