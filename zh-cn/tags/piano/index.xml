@@ -4,13 +4,45 @@
         <link>https://thueringerbratwurst.com/zh-cn/tags/piano/</link>
         <description>Piano - 标签 - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</lastBuildDate><atom:link href="https://thueringerbratwurst.com/zh-cn/tags/piano/" rel="self" type="application/rss+xml" /><item>
-    <title>Piano LED for Arduino – 苹果版特效钢琴</title>
-    <link>https://thueringerbratwurst.com/zh-cn/pla/</link>
-    <pubDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</pubDate>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023Ⓒ版权所有，未经过作者许可，不得转载。</copyright><lastBuildDate>Sun, 01 Oct 2023 18:30:00 &#43;0100</lastBuildDate><atom:link href="https://thueringerbratwurst.com/zh-cn/tags/piano/" rel="self" type="application/rss+xml" /><item>
+    <title>个人钢琴曲集</title>
+    <link>https://thueringerbratwurst.com/zh-cn/music/</link>
+    <pubDate>Sun, 01 Oct 2023 18:30:00 &#43;0100</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://thueringerbratwurst.com/zh-cn/pla/</guid>
-    <description><![CDATA[介绍 Piano LED for Arduino (以下简称PLA) 是一个完全免费、轻量级无广告的 MacOS 程序，它可以解析电钢琴发送的 MIDI 文件，从而发送控制指令到 Arduino， 从而让您]]></description>
+    <guid>https://thueringerbratwurst.com/zh-cn/music/</guid>
+    <description><![CDATA[It&rsquo;s going to be the special - 2023.10 Give me your hand - 2023.08 冰点 - 2021.08 Rise - 2021.07 一直很安静 - 2021.05]]></description>
+</item>
+<item>
+    <title>202309 汉堡</title>
+    <link>https://thueringerbratwurst.com/zh-cn/202309/</link>
+    <pubDate>Sat, 02 Sep 2023 18:30:00 &#43;0100</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>https://thueringerbratwurst.com/zh-cn/202309/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>202308 波恩</title>
+    <link>https://thueringerbratwurst.com/zh-cn/202308-bonn/</link>
+    <pubDate>Tue, 01 Aug 2023 18:30:00 &#43;0100</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>https://thueringerbratwurst.com/zh-cn/202308-bonn/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>202307 科隆</title>
+    <link>https://thueringerbratwurst.com/zh-cn/202307-koeln/</link>
+    <pubDate>Sun, 02 Jul 2023 18:30:00 &#43;0100</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>https://thueringerbratwurst.com/zh-cn/202307-koeln/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>2021-2022</title>
+    <link>https://thueringerbratwurst.com/zh-cn/2021-2022/</link>
+    <pubDate>Fri, 02 Sep 2022 18:30:00 &#43;0100</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>https://thueringerbratwurst.com/zh-cn/2021-2022/</guid>
+    <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>

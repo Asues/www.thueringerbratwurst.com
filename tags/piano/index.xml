@@ -4,14 +4,45 @@
         <link>https://thueringerbratwurst.com/tags/piano/</link>
         <description>Piano - Tag - 图林根の烤肠</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>crosser_wack.0m@icloud.com (图林根の烤肠)</managingEditor>
-            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023ⒸAll Rights Reserved</copyright><lastBuildDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</lastBuildDate><atom:link href="https://thueringerbratwurst.com/tags/piano/" rel="self" type="application/rss+xml" /><item>
-    <title>MacOS - Piano LED for Arduino (Piano Visualizer)</title>
-    <link>https://thueringerbratwurst.com/pla/</link>
-    <pubDate>Fri, 05 Nov 2021 21:06:07 &#43;0000</pubDate>
+            <webMaster>crosser_wack.0m@icloud.com (图林根の烤肠)</webMaster><copyright>2023ⒸAll Rights Reserved</copyright><lastBuildDate>Sun, 01 Oct 2023 18:30:00 &#43;0100</lastBuildDate><atom:link href="https://thueringerbratwurst.com/tags/piano/" rel="self" type="application/rss+xml" /><item>
+    <title>Music Collections</title>
+    <link>https://thueringerbratwurst.com/music/</link>
+    <pubDate>Sun, 01 Oct 2023 18:30:00 &#43;0100</pubDate>
     <author>图林根の烤肠</author>
-    <guid>https://thueringerbratwurst.com/pla/</guid>
-    <description><![CDATA[Descrpition Piano LED for Arduino (PLA) is a piano visualizer, it is free, lightweight, without Ad. application that allows you to controll LED-Strips during you playing digital piano (you still need an Arduino board, like UNO). It is able to receive MIDI message from your digital piano and transmit the MIDI data to Arduino, so that Arduino is able to control LEDs with the MIDI-Streaming.
-Download Links Piano LED for Arduino v1.]]></description>
+    <guid>https://thueringerbratwurst.com/music/</guid>
+    <description><![CDATA[It&rsquo;s going to be the special - 2023.10 Give me your hand - 2023.08 冰点 - 2021.08 Rise - 2021.07 一直很安静 - 2021.05]]></description>
+</item>
+<item>
+    <title>202309 Hamburg</title>
+    <link>https://thueringerbratwurst.com/202309/</link>
+    <pubDate>Sat, 02 Sep 2023 18:30:00 &#43;0100</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>https://thueringerbratwurst.com/202309/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>202308 Bonn</title>
+    <link>https://thueringerbratwurst.com/202308-bonn/</link>
+    <pubDate>Tue, 01 Aug 2023 18:30:00 &#43;0100</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>https://thueringerbratwurst.com/202308-bonn/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>202307 Köln</title>
+    <link>https://thueringerbratwurst.com/202307-koeln/</link>
+    <pubDate>Sun, 02 Jul 2023 18:30:00 &#43;0100</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>https://thueringerbratwurst.com/202307-koeln/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>2021-2022</title>
+    <link>https://thueringerbratwurst.com/2021-2022/</link>
+    <pubDate>Fri, 02 Sep 2022 18:30:00 &#43;0100</pubDate>
+    <author>图林根の烤肠</author>
+    <guid>https://thueringerbratwurst.com/2021-2022/</guid>
+    <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>
