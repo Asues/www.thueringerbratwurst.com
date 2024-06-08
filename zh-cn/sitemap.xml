@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/categories/app/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/categories/app/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/categories/app/"
@@ -11,7 +11,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/categories/app/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/categories/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/categories/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/categories/"
@@ -20,7 +20,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/categories/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/tags/einb%C3%BCrgerung/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/tags/einb%C3%BCrgerung/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/tags/einb%C3%BCrgerung/"
@@ -29,7 +29,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/tags/einb%C3%BCrgerung/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/tags/einb%C3%BCrgerungstest/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/tags/einb%C3%BCrgerungstest/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/tags/einb%C3%BCrgerungstest/"
@@ -38,7 +38,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/tags/einb%C3%BCrgerungstest/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/eide/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/eide/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/eide/"
@@ -47,7 +47,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/eide/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/posts/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/posts/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/posts/"
@@ -56,7 +56,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/posts/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/tags/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/tags/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/tags/"
@@ -65,9 +65,9 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/tags/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/tags/%E5%BE%B7%E5%9B%BD%E5%85%A5%E7%B1%8D%E8%80%83%E8%AF%95/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/tags/%E5%85%A5%E7%B1%8D%E8%80%83%E8%AF%95/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/tags/%E5%BE%B7%E5%9B%BD%E5%85%A5%E7%B1%8D%E8%80%83%E8%AF%95/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://thueringerbratwurst.com/zh-cn/tags/%E5%85%A5%E7%B1%8D%E8%80%83%E8%AF%95/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://thueringerbratwurst.com/zh-cn/</loc><lastmod>2023-10-07T23:08:07&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/"
@@ -76,7 +76,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/tags/nikon/</loc><lastmod>2023-10-01T18:30:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/tags/nikon/</loc><lastmod>2023-10-01T18:30:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/tags/nikon/"
@@ -85,7 +85,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/tags/nikon/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/tags/photography/</loc><lastmod>2023-10-01T18:30:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/tags/photography/</loc><lastmod>2023-10-01T18:30:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/tags/photography/"
@@ -94,7 +94,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/tags/photography/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/tags/piano/</loc><lastmod>2023-10-01T18:30:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/tags/piano/</loc><lastmod>2023-10-01T18:30:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/tags/piano/"
@@ -103,7 +103,7 @@
                     hreflang="zh-cn"
                     href="https://thueringerbratwurst.com/zh-cn/tags/piano/"
                     /></url><url>
-            <loc>https://thueringerbratwurst.com/zh-cn/music/</loc><lastmod>2023-10-01T18:30:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><xhtml:link
+            <loc>https://thueringerbratwurst.com/zh-cn/music/</loc><lastmod>2023-10-01T18:30:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://thueringerbratwurst.com/music/"
